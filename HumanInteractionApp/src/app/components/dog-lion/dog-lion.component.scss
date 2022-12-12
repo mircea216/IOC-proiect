@@ -1,0 +1,41 @@
+.board-container {
+    background: url(../../../assets/images/board.jpg);
+    height: 820px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    overflow-y: hidden;
+    display: flex;
+}
+
+.next-btn {
+    background-image: url("../../../assets/images/left-arrow.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+    margin-top: 750px;
+    margin-left: 1600px;
+    height: 45px;
+    width: 45px;
+    position: absolute;
+    border: 2px;
+    cursor: pointer;
+}
+
+.dog-holder {
+    position: relative;
+    margin-left: 600px;
+    margin-top: 300px;
+    width: 450px;
+    height: 300px;
+    cursor: pointer;
+}
+
+.lion-holder {
+    margin-left: 100px;
+    margin-top: 260px;
+    width: 450px;
+    height: 380px;
+    cursor: pointer;
+}
