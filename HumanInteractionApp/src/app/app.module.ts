@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { MouseCatComponent } from './components/mouse-cat/mouse-cat.component';
 import { DogLionComponent } from './components/dog-lion/dog-lion.component';
 import { RhynoElephantComponent } from './components/rhyno-elephant/rhyno-elephant.component';
+import { SaladMakingComponent } from './components/salad-making/salad-making.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MouseCatComponent,
     DogLionComponent,
-    RhynoElephantComponent
+    RhynoElephantComponent,
+    SaladMakingComponent
   ],
   imports: [
     BrowserModule,
