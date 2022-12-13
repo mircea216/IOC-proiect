@@ -1,5 +1,5 @@
 .container {
-    background: url(../../../assets/images/meals-bgd.png);
+    background: url("../../../assets/images/meals-bgd.png");
     height: 820px;
     width: 100%;
     background-repeat: no-repeat;
@@ -8,16 +8,6 @@
     overflow-y: hidden;
 }
 
-.next-btn{
-    margin-left: 150px;
-    height: 50px;
-    width: 50px;
-    background-image: url("../../../assets/images/nextimg.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-radius: 100%;
-    cursor: pointer;
-}
 
 .good-apple-jar {
     margin-left: 950px;

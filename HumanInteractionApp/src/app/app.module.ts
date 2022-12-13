@@ -7,6 +7,7 @@ import { MouseCatComponent } from './components/mouse-cat/mouse-cat.component';
 import { DogLionComponent } from './components/dog-lion/dog-lion.component';
 import { RhynoElephantComponent } from './components/rhyno-elephant/rhyno-elephant.component';
 import { SaladMakingComponent } from './components/salad-making/salad-making.component';
+import { MealPreparationComponent } from './components/meal-preparation/meal-preparation.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { SaladMakingComponent } from './components/salad-making/salad-making.com
     MouseCatComponent,
     DogLionComponent,
     RhynoElephantComponent,
-    SaladMakingComponent
+    SaladMakingComponent,
+    MealPreparationComponent
   ],
   imports: [
     BrowserModule,
