@@ -1,5 +1,5 @@
 .board-container {
-    background: url(../../../assets/images/board.jpg);
+    background: url("../../../assets/images/board-bgd.png");
     height: 820px;
     width: 100%;
     background-repeat: no-repeat;
@@ -25,7 +25,7 @@
 
 .dog-holder {
     position: relative;
-    margin-left: 600px;
+    margin-left: 420px;
     margin-top: 300px;
     width: 450px;
     height: 300px;
@@ -33,9 +33,17 @@
 }
 
 .lion-holder {
-    margin-left: 100px;
+    margin-left: 50px;
     margin-top: 260px;
     width: 450px;
     height: 380px;
+    cursor: pointer;
+}
+
+.cock-holder {
+    margin-left: 50px;
+    margin-top: 360px;
+    width: 230px;
+    height: 200px;
     cursor: pointer;
 }

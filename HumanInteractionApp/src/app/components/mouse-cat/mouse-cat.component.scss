@@ -1,5 +1,5 @@
 .board-container {
-    background: url(../../../assets/images/board.jpg);
+    background: url("../../../assets/images/board-bgd.png");
     height: 820px;
     width: 100%;
     background-repeat: no-repeat;
@@ -33,9 +33,9 @@
 }
 
 .cat-holder {
-    margin-left: 100px;
-    margin-top: 260px;
-    width: 300px;
-    height: 300px;
+    margin-left: 60px;
+    margin-top: 200px;
+    width: 350px;
+    height: 400px;
     cursor: pointer;
 }

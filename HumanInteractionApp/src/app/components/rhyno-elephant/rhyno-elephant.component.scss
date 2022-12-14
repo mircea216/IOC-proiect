@@ -1,5 +1,5 @@
 .board-container {
-    background: url(../../../assets/images/board.jpg);
+    background: url("../../../assets/images/board-bgd.png");
     height: 820px;
     width: 100%;
     background-repeat: no-repeat;
@@ -25,7 +25,7 @@
 
 .elephant-holder {
     position: relative;
-    margin-left: 600px;
+    margin-left: 405px;
     margin-top: 300px;
     width: 470px;
     height: 320px;
@@ -33,9 +33,17 @@
 }
 
 .rhyno-holder {
-    margin-left: 100px;
+    margin-left: 50px;
     margin-top: 320px;
     width: 460px;
     height: 370px;
+    cursor: pointer;
+}
+
+.butterfly-holder{
+    margin-left: 50px;
+    margin-top: 400px;
+    width: 170px;
+    height: 170px;
     cursor: pointer;
 }
