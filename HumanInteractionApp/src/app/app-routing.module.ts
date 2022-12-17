@@ -10,8 +10,8 @@ const routes: Routes = [
   { path: 'round-1', component: MouseCatComponent },
   { path: 'round-2', component: DogLionComponent },
   { path: 'round-3', component: RhynoElephantComponent },
-  { path: 'healthy-food-1', component: SaladMakingComponent },
-  { path: 'healthy-food-2', component: MealPreparationComponent }
+  { path: 'healthy-food-2', component: SaladMakingComponent },
+  { path: 'healthy-food-1', component: MealPreparationComponent }
 ];
 
 @NgModule({
