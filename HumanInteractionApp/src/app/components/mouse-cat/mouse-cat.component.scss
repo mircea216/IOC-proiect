@@ -1,0 +1,49 @@
+.board-container {
+    background: url("../../../assets/images/board-bgd.png");
+    height: 820px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    overflow-y: hidden;
+    display: flex;
+}
+
+.next-btn {
+    background-image: url("../../../assets/images/left-arrow.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+    margin-top: 750px;
+    margin-left: 1600px;
+    height: 45px;
+    width: 45px;
+    position: absolute;
+    border: 2px;
+    cursor: pointer;
+}
+
+.mouse-holder {
+    position: relative;
+    margin-left: 600px;
+    margin-top: 300px;
+    width: 450px;
+    height: 300px;
+    cursor: pointer;
+}
+
+.cat-holder {
+    margin-left: 60px;
+    margin-top: 200px;
+    width: 350px;
+    height: 400px;
+    cursor: pointer;
+}
+
+canvas {
+    width: 600px;
+    display: block;
+    margin-top: -500px;
+    margin-left: 900px;
+    pointer-events: none;
+}

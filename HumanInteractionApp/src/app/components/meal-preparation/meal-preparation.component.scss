@@ -1,0 +1,67 @@
+.container {
+    background: url("../../../assets/images/meals-bgd.png");
+    height: 820px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    overflow-y: hidden;
+}
+
+
+.good-apple-jar {
+    margin-left: 950px;
+    margin-right: 100px;
+    height: 230px;
+    width: 230px;
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+.bad-apple-jar {
+    height: 230px;
+    width: 230px;
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+.good-grape-jar {
+    margin-left: 950px;
+    margin-right: 100px;
+    height: 230px;
+    width: 230px;
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+.bad-grape-jar {
+    height: 230px;
+    width: 230px;
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+.good-pear-jar {
+    margin-left: 950px;
+    margin-right: 100px;
+    height: 230px;
+    width: 230px;
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+.bad-pear-jar {
+    height: 230px;
+    width: 230px;
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+.span{
+    margin-left: 400px;
+    float: left;
+}
+
+.grid-placer {
+    display: inline-block;
+}
