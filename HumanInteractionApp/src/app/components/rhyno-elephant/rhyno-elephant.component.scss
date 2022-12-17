@@ -47,3 +47,11 @@
     height: 170px;
     cursor: pointer;
 }
+
+canvas {
+    width: 600px;
+    display: block;
+    margin-top: -500px;
+    margin-left: 1050px;
+    pointer-events: none;
+}

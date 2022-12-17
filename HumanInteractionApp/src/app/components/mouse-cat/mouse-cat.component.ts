@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
+import * as confetti from 'canvas-confetti';
 
 @Component({
   selector: 'app-mouse-cat',
@@ -7,7 +8,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MouseCatComponent implements OnInit {
 
-  constructor() { }
 
   ngOnInit(): void {
     this.playGameSound();
@@ -20,6 +20,27 @@ export class MouseCatComponent implements OnInit {
     audio.play();
   }
 
+  
+  constructor(
+    private renderer2: Renderer2,
+    private elementRef: ElementRef
+  ) { }
+
+  surprise(): void {
+
+    const canvas = this.renderer2.createElement('canvas');
+
+    this.renderer2.appendChild(this.elementRef.nativeElement, canvas);
+
+    const myConfetti = confetti.create(canvas, {
+      resize: true // will fit all screen sizes,
+    });
+
+    myConfetti();
+    this.playCorrectSound();
+  }
+  
+  
   playCorrectSound() {
     let audio = new Audio();
     audio.src = "../../../assets/sound/correct.m4a"

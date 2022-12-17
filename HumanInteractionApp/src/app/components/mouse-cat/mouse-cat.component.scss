@@ -39,3 +39,11 @@
     height: 400px;
     cursor: pointer;
 }
+
+canvas {
+    width: 600px;
+    display: block;
+    margin-top: -500px;
+    margin-left: 900px;
+    pointer-events: none;
+}

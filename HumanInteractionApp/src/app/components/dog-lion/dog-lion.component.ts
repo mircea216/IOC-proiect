@@ -27,6 +27,7 @@ export class DogLionComponent implements OnInit {
 
     myConfetti();
   }
+  
   playCorrectSound() {
     let audio = new Audio();
     audio.src = "../../../assets/sound/correct.m4a"
