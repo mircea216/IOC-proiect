@@ -8,7 +8,7 @@ import { DogLionComponent } from './components/dog-lion/dog-lion.component';
 import { RhynoElephantComponent } from './components/rhyno-elephant/rhyno-elephant.component';
 import { SaladMakingComponent } from './components/salad-making/salad-making.component';
 import { MealPreparationComponent } from './components/meal-preparation/meal-preparation.component';
-import { DrawingNumbersComponent } from './components/drawing-numbers/drawing-numbers.component';
+import { PuzzleSnowWhiteComponent } from './components/puzzle-snow-white/puzzle-snow-white.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,7 @@ import { DrawingNumbersComponent } from './components/drawing-numbers/drawing-nu
     RhynoElephantComponent,
     SaladMakingComponent,
     MealPreparationComponent,
-    DrawingNumbersComponent,
+    PuzzleSnowWhiteComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
