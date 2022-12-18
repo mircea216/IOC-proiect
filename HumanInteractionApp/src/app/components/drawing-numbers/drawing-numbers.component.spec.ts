@@ -8,9 +8,8 @@ describe('DrawingNumbersComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DrawingNumbersComponent ]
-    })
-    .compileComponents();
+      declarations: [DrawingNumbersComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

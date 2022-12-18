@@ -1,57 +1,57 @@
 .board-container {
-    background: url("../../../assets/images/board-bgd.png");
-    height: 820px;
-    width: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    overflow-y: hidden;
-    display: flex;
+  background: url("../../../assets/images/board-bgd.png");
+  height: 820px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  overflow-y: hidden;
+  display: flex;
 }
 
 .next-btn {
-    background-image: url("../../../assets/images/left-arrow.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-radius: 10px;
-    margin-top: 750px;
-    margin-left: 1600px;
-    height: 45px;
-    width: 45px;
-    position: absolute;
-    border: 2px;
-    cursor: pointer;
+  background-image: url("../../../assets/images/left-arrow.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px;
+  margin-top: 750px;
+  margin-left: 1600px;
+  height: 45px;
+  width: 45px;
+  position: absolute;
+  border: 2px;
+  cursor: pointer;
 }
 
 .elephant-holder {
-    position: relative;
-    margin-left: 405px;
-    margin-top: 300px;
-    width: 470px;
-    height: 320px;
-    cursor: pointer;
+  position: relative;
+  margin-left: 405px;
+  margin-top: 300px;
+  width: 470px;
+  height: 320px;
+  cursor: pointer;
 }
 
 .rhyno-holder {
-    margin-left: 50px;
-    margin-top: 320px;
-    width: 460px;
-    height: 370px;
-    cursor: pointer;
+  margin-left: 50px;
+  margin-top: 320px;
+  width: 460px;
+  height: 370px;
+  cursor: pointer;
 }
 
-.butterfly-holder{
-    margin-left: 50px;
-    margin-top: 400px;
-    width: 170px;
-    height: 170px;
-    cursor: pointer;
+.butterfly-holder {
+  margin-left: 50px;
+  margin-top: 400px;
+  width: 170px;
+  height: 170px;
+  cursor: pointer;
 }
 
 canvas {
-    width: 600px;
-    display: block;
-    margin-top: -500px;
-    margin-left: 1050px;
-    pointer-events: none;
+  width: 600px;
+  display: block;
+  margin-top: -500px;
+  margin-left: 1050px;
+  pointer-events: none;
 }
