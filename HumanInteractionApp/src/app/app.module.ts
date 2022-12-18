@@ -8,6 +8,7 @@ import { DogLionComponent } from './components/dog-lion/dog-lion.component';
 import { RhynoElephantComponent } from './components/rhyno-elephant/rhyno-elephant.component';
 import { SaladMakingComponent } from './components/salad-making/salad-making.component';
 import { MealPreparationComponent } from './components/meal-preparation/meal-preparation.component';
+import { DrawingNumbersComponent } from './components/drawing-numbers/drawing-numbers.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { MealPreparationComponent } from './components/meal-preparation/meal-pre
     DogLionComponent,
     RhynoElephantComponent,
     SaladMakingComponent,
-    MealPreparationComponent
+    MealPreparationComponent,
+    DrawingNumbersComponent
   ],
   imports: [
     BrowserModule,

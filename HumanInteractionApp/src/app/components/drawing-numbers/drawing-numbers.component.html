@@ -1,0 +1,29 @@
+<div id="container" class="container">
+
+  <canvas (mousedown)="onmousedown($event)" 
+  (document:mousemove)="onmousemove($event)" 
+  (document:mouseup)="onmouseup($event)"
+  (document:touchstart)="ontouchstart($event)"
+  (document:touchend)="ontouchend($event)"
+  (document:touchmove)="ontouchmove($event)"></canvas>
+
+  <h1 class="toppanel">Coloram Numere</h1>
+
+  <div id="intro" class="cover">
+    <p>Coloreaza</p>
+    <button id="intro button" class="actionbutton">➜</button>
+  </div>
+
+  <div id="win" class="cover check">
+    <p>Bravo :)</p> 
+    <button id="win button" class="actionbutton" >➜</button>
+  </div>
+
+  <div id="error" class="cover">
+    <p>":("</p> 
+    <button id="error button" class="actionbutton">➜</button>
+  </div>
+
+  <button class="actionbutton undo" id="reload">X</button>
+
+</div>
