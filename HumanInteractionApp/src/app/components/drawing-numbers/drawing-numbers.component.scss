@@ -2,13 +2,13 @@
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 400;
-    src: local('Open Sans'), local('OpenSans'), url(assets/opensans.ttf) format('truetype');
+    src: local('Open Sans'), local('OpenSans'), url(../../../assets/opensans.ttf) format('truetype');
   }
   @font-face {
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 700;
-    src: local('Open Sans Bold'), local('OpenSans-Bold'), url(assets/opensans-bold.ttf) format('truetype');
+    src: local('Open Sans Bold'), local('OpenSans-Bold'), url(../../../assets/opensans-bold.ttf) format('truetype');
   }
   
   body, html {
@@ -28,7 +28,7 @@
     overflow: hidden;
   }
   canvas {
-    background: url(assets/4efb9600-774d-4c7b-b5d2-b541b9b8d4b2.jfif);
+    background: url(../../../assets/images/4efb9600-774d-4c7b-b5d2-b541b9b8d4b2.jfif);
     display: block;
     width: 100%;
     height: 100%;
