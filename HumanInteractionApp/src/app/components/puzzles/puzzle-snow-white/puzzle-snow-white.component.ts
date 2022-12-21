@@ -9,6 +9,4 @@ export class PuzzleSnowWhiteComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
-
-  moveOn(el: any) {}
 }
