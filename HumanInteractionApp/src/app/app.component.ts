@@ -8,8 +8,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'HumanInteractionApp';
 
-  onChildLoaded(component: any) {
-    const chk = document.getElementById('menu') as HTMLInputElement;
-    chk.checked = false;
-  }
+  // onChildLoaded(component: any) {
+  //   const chk = document.getElementById('menu') as HTMLInputElement;
+  //   chk.checked = false;
+  // }
 }

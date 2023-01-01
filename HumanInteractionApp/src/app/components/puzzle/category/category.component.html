@@ -1,9 +1,7 @@
 <div class="categories" *ngIf="categoryText">
-  
-  <span class="category">{{categoryText}}</span>
+  <span class="category">{{ categoryText }}</span>
 
-  <select (change)="onChange($event)">
+  <!-- <select (change)="onChange($event)">
     <option *ngFor="let category of categories;" [selected]="category.id === categoryId" value={{category.id}}>{{category.name}}</option>  
-  </select>
-
+  </select> -->
 </div>

@@ -3,8 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { DogLionComponent } from './components/dog-lion/dog-lion.component';
 import { MealPreparationComponent } from './components/meal-preparation/meal-preparation.component';
 import { MouseCatComponent } from './components/mouse-cat/mouse-cat.component';
-import { AboutComponent } from './components/puzzle/about/about.component';
-import { ContactComponent } from './components/puzzle/contact/contact.component';
 import { GameComponent } from './components/puzzle/game/game.component';
 import { HistoryComponent } from './components/puzzle/history/history.component';
 import { RepositoryComponent } from './components/puzzle/repository/repository.component';
@@ -20,8 +18,6 @@ const routes: Routes = [
   { path: '', component: GameComponent },
   { path: 'history', component: HistoryComponent },
   { path: 'repository', component: RepositoryComponent },
-  { path: 'about', component: AboutComponent },
-  { path: 'contact', component: ContactComponent },
 ];
 
 @NgModule({

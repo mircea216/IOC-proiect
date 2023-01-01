@@ -68,7 +68,14 @@ export class BoardComponent implements OnInit {
         random = Math.floor(Math.random() * this.numberOfPieces);
       }
       visited.push(random);
-      path = `url(https://firebasestorage.googleapis.com/v0/b/puzzle-ebd10.appspot.com/o/images%2F${this.folder}%2F${this.image}%2F${random}.jpg?alt=media)`;
+
+      path =
+        'url(../../../../assets/images/povesti/' +
+        this.image +
+        '/' +
+        random +
+        '.jpg)';
+
       pieces[i] = { index: i, id: random, misplaced: true, path };
     }
     this.pieces = pieces;

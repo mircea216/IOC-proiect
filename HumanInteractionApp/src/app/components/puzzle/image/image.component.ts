@@ -17,7 +17,7 @@ import { DictionaryService } from '../dictionary.service';
   styleUrls: ['./image.component.css'],
 })
 export class ImageComponent implements OnInit, OnDestroy, OnChanges {
-  readonly imagesPerCategory = 20;
+  readonly imagesPerCategory = 3;
   private subscription: Subscription | undefined;
   @Input() folder: string = '';
   @Input() image: number = 0;
@@ -47,9 +47,10 @@ export class ImageComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   private setPath(folder: string): void {
-    this.path = `https://firebasestorage.googleapis.com/v0/b/puzzle-ebd10.appspot.com/o/images%2F${folder}%2F${this.image}.jpg?alt=media`;
+    this.path = '../../../../assets/images/povesti/' + this.image + '.jpg';
+    // this.path = `https://firebasestorage.googleapis.com/v0/b/puzzle-ebd10.appspot.com/o/images%2F${folder}%2F${this.image}.jpg?alt=media`;
 
-    this.pathMobile = `https://firebasestorage.googleapis.com/v0/b/puzzle-ebd10.appspot.com/o/images%2F${folder}%2Fmobile%2F${this.image}.jpg?alt=media`;
+    // this.pathMobile = `https://firebasestorage.googleapis.com/v0/b/puzzle-ebd10.appspot.com/o/images%2F${folder}%2Fmobile%2F${this.image}.jpg?alt=media`;
   }
 
   refreshImage(): void {

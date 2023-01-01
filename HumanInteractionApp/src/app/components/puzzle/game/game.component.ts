@@ -9,7 +9,7 @@ import { GameDBService } from '../gamedb.service';
   styleUrls: ['./game.component.css'],
 })
 export class GameComponent implements OnInit, OnDestroy {
-  readonly imagesPerCategory = 20;
+  readonly imagesPerCategory = 3;
   readonly secondsInAMinute = 60;
   private subscription: Subscription | undefined;
   private intervalId: any;

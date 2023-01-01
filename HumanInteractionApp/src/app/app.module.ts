@@ -9,12 +9,10 @@ import { RhynoElephantComponent } from './components/rhyno-elephant/rhyno-elepha
 import { SaladMakingComponent } from './components/salad-making/salad-making.component';
 import { MealPreparationComponent } from './components/meal-preparation/meal-preparation.component';
 import { PuzzleSnowWhiteComponent } from './components/puzzles/puzzle-snow-white/puzzle-snow-white.component';
-import { AboutComponent } from './components/puzzle/about/about.component';
 import { BoardComponent } from './components/puzzle/board/board.component';
 import { RepositoryComponent } from './components/puzzle/repository/repository.component';
 import { CategoryComponent } from './components/puzzle/category/category.component';
 import { CategoryHistoryComponent } from './components/puzzle/category-history/category-history.component';
-import { ContactComponent } from './components/puzzle/contact/contact.component';
 import { GameComponent } from './components/puzzle/game/game.component';
 import { HeaderComponent } from './components/puzzle/header/header.component';
 import { HistoryComponent } from './components/puzzle/history/history.component';
@@ -36,12 +34,10 @@ import { GameDBService } from './components/puzzle/gamedb.service';
     SaladMakingComponent,
     MealPreparationComponent,
     PuzzleSnowWhiteComponent,
-    AboutComponent,
     BoardComponent,
     RepositoryComponent,
     CategoryComponent,
     CategoryHistoryComponent,
-    ContactComponent,
     GameComponent,
     HeaderComponent,
     HistoryComponent,

@@ -4,11 +4,6 @@
   margin: 0 auto;
 }
 
-/* app-board {
-  max-width: 800px;
-  max-height: 800px;
-} */
-
 @media screen and (max-width: 500px) {
   .game {
     margin: 0 auto;
