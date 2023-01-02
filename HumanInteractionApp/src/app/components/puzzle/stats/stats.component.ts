@@ -22,8 +22,8 @@ export class StatsComponent implements OnInit, OnDestroy {
     this.subscription = this.dictionary
       .getTranslations()
       .subscribe((data: any) => {
-        this.timeText = data['TIME'];
-        this.movesText = data['MOVES'];
+        this.timeText = 'Timp:';
+        this.movesText = 'Mutări: ';
         this.failsText = data['FAILS'];
       });
   }
