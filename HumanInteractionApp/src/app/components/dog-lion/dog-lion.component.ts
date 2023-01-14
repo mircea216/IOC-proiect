@@ -11,6 +11,7 @@ export class DogLionComponent implements OnInit, OnDestroy {
   private audioRetry: any;
 
   ngOnInit(): void {
+    this.playGameSound();
   }
 
   constructor(
@@ -34,7 +35,7 @@ export class DogLionComponent implements OnInit, OnDestroy {
 
   playGameSound(): void {
     this.audioGame = new Audio();
-    this.audioGame.src = "../../../assets/sound/mc-sound.m4a"
+    this.audioGame.src = "../../../assets/sound/a1.m4a"
     this.audioGame.load();
     this.audioGame.play();
   }

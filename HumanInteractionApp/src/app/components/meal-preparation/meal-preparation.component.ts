@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-meal-preparation',
   templateUrl: './meal-preparation.component.html',
   styleUrls: ['./meal-preparation.component.scss']
 })
-export class MealPreparationComponent implements OnInit {
+export class MealPreparationComponent implements OnInit, OnDestroy {
   private audioRetry: any;
   private saladInitGame: any;
   private appleSound: any;
@@ -51,5 +51,28 @@ export class MealPreparationComponent implements OnInit {
     this.pearSound.src = "../../../assets/sound/sd-4.m4a"
     this.pearSound.load();
     this.pearSound.play();
+  }
+
+  ngOnDestroy(): void {
+    if (this.saladInitGame) {
+      this.saladInitGame.pause();
+      this.saladInitGame = null;
+    }
+    if (this.appleSound) {
+      this.appleSound.pause();
+      this.appleSound = null;
+    }
+    if (this.audioRetry) {
+      this.audioRetry.pause();
+      this.audioRetry = null;
+    }
+    if (this.pearSound) {
+      this.pearSound.pause();
+      this.pearSound = null;
+    }
+    if (this.grapeSound) {
+      this.grapeSound.pause();
+      this.grapeSound = null;
+    }
   }
 }
