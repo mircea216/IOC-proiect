@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import * as confetti from 'canvas-confetti';
 
 @Component({
@@ -12,13 +13,22 @@ export class MouseCatComponent implements OnInit {
   }
 
   playGameSound(): void {
-    let audio = new Audio();
-    audio.src = '../../../assets/sound/mc-sound.m4a';
-    audio.load();
-    audio.play();
+    this.route.params.subscribe((params) => {
+      if (params['playSound'] == '1') {
+        let audio = new Audio();
+        audio.src = '../../../assets/sound/mc-sound.m4a';
+        audio.load();
+        audio.play();
+      }
+    });
   }
 
-  constructor(private renderer2: Renderer2, private elementRef: ElementRef) {}
+  constructor(
+    private renderer2: Renderer2,
+    private elementRef: ElementRef,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   surprise(): void {
     const canvas = this.renderer2.createElement('canvas');
@@ -31,6 +41,11 @@ export class MouseCatComponent implements OnInit {
 
     myConfetti();
     this.playCorrectSound();
+
+    setTimeout(() => {
+      localStorage.setItem('puncte', '1');
+      this.router.navigateByUrl('my-drawing');
+    }, 8000);
   }
 
   playCorrectSound() {
