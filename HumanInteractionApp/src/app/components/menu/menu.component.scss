@@ -1,0 +1,30 @@
+.background {
+  background-image: url("../../../assets/images/background-meal.png");
+  height: 100%;
+}
+
+img {
+  max-height: 350px;
+  max-width: 350px;
+}
+
+.imagine-din-colt {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  max-height: 200px;
+  min-height: 200px;
+}
+
+.imagini-meniu {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 180px;
+  padding-right: 180px;
+  padding-top: 100px;
+  text-align: center;
+}
+
+.disable {
+  opacity: 0.3;
+}
