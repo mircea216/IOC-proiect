@@ -34,7 +34,7 @@ export class GameComponent implements OnInit, OnDestroy {
       .getTranslations()
       .subscribe((data: any) => {
         this.goal = data['GAME_GOAL'];
-        this.end = data['GAME_OVER'];
+        this.end = 'Ai castigat!';
       });
   }
 
