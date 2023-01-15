@@ -1,15 +1,15 @@
-@media (max-width:1217px) and (max-height:580px) {
+@media (max-width:1530px) and (max-height:750px) {
     .board-container {
         width: 100%;
         height: 100%;
     }
-    
+
 }
 
 .board-container {
     background: url("../../../assets/images/board-bgd.png");
-    height: 580px;
-    width: 1217px;
+    height: 750px;
+    width: 1530px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -22,8 +22,8 @@
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 10px;
-    margin-top: 520px;
-    margin-left: 1130px;
+    margin-top: 690px;
+    margin-left: 1450px;
     height: 40px;
     width: 40px;
     position: absolute;
@@ -33,24 +33,24 @@
 
 .elephant-holder {
     position: relative;
-    margin-left: 390px;
-    margin-top: 200px;
-    width: 400px;
-    height: 250px;
+    margin-left: 530px;
+    margin-top: 230px;
+    width: 430px;
+    height: 280px;
     cursor: pointer;
 }
 
 .rhyno-holder {
     margin-left: 20px;
-    margin-top: 250px;
-    width: 360px;
-    height: 250px;
+    margin-top: 290px;
+    width: 390px;
+    height: 280px;
     cursor: pointer;
 }
 
 .butterfly-holder{
     margin-right: 40px;
-    margin-top: 330px;
+    margin-top: 395px;
     width: 120px;
     height: 120px;
     cursor: pointer;
