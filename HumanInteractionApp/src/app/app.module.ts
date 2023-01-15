@@ -8,7 +8,6 @@ import { DogLionComponent } from './components/dog-lion/dog-lion.component';
 import { RhynoElephantComponent } from './components/rhyno-elephant/rhyno-elephant.component';
 import { SaladMakingComponent } from './components/salad-making/salad-making.component';
 import { MealPreparationComponent } from './components/meal-preparation/meal-preparation.component';
-import { PuzzleSnowWhiteComponent } from './components/puzzles/puzzle-snow-white/puzzle-snow-white.component';
 import { BoardComponent } from './components/puzzle/board/board.component';
 import { RepositoryComponent } from './components/puzzle/repository/repository.component';
 import { CategoryComponent } from './components/puzzle/category/category.component';
@@ -35,7 +34,6 @@ import { MenuComponent } from './components/menu/menu.component';
     RhynoElephantComponent,
     SaladMakingComponent,
     MealPreparationComponent,
-    PuzzleSnowWhiteComponent,
     BoardComponent,
     RepositoryComponent,
     CategoryComponent,

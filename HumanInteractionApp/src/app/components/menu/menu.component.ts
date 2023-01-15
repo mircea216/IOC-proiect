@@ -12,10 +12,9 @@ export class MenuComponent implements OnInit, OnDestroy {
   constructor(private router: Router) {}
 
   ngOnInit(): void {
-    if(localStorage.getItem('puncte')){
+    if (localStorage.getItem('puncte')) {
       this.points = localStorage.getItem('puncte');
-    }
-    else{
+    } else {
       localStorage.setItem('puncte', '0');
     }
   }
@@ -25,12 +24,23 @@ export class MenuComponent implements OnInit, OnDestroy {
   }
 
   goToFood() {
-    if (localStorage.getItem('puncte') == '3')
+    if (
+      localStorage.getItem('puncte') == '3' ||
+      localStorage.getItem('puncte') == '4' ||
+      localStorage.getItem('puncte') == '5' ||
+      localStorage.getItem('puncte') == '6' ||
+      localStorage.getItem('puncte') == '7' ||
+      localStorage.getItem('puncte') == '8'
+    )
       this.router.navigateByUrl('healthy-food-1/1');
   }
 
   goToAnimals() {
-    if (localStorage.getItem('puncte') == '0')
+    if (
+      localStorage.getItem('puncte') == '0' ||
+      localStorage.getItem('puncte') == '1' ||
+      localStorage.getItem('puncte') == '2'
+    )
       this.router.navigateByUrl('round-1/1');
   }
 

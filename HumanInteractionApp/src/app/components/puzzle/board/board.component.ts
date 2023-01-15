@@ -22,6 +22,13 @@ export class BoardComponent implements OnInit {
   private fails: number = 0;
   over: boolean = false;
   pieces: Array<Piece> = [];
+  private correctPieces: number = 0;
+
+  private firstSound: any;
+  private secondSound: any;
+  private thirdSound: any;
+  private fourthSound: any;
+  private startSound: any;
 
   @Input() folder: string = '';
   @Input() image: number = 0;
@@ -29,6 +36,10 @@ export class BoardComponent implements OnInit {
 
   ngOnInit(): void {
     this.reset();
+    this.startSound = new Audio();
+    this.startSound.src = '../../../assets/images/povesti/0' + '/0.mp4';
+    this.startSound.load();
+    this.startSound.play();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -98,9 +109,37 @@ export class BoardComponent implements OnInit {
   }
 
   private misplacedCheck(piece: Piece): void {
+    this.startSound.pause();
+
     piece.misplaced = !(piece.id === piece.index);
     if (piece.misplaced) {
       this.fails++;
+    } else {
+      this.correctPieces++;
+      if (this.correctPieces == 4) {
+        this.firstSound = new Audio();
+        this.firstSound.src = '../../../assets/images/povesti/0' + '/1.mp4';
+        this.firstSound.load();
+        this.firstSound.play();
+      } else if (this.correctPieces == 8) {
+        this.firstSound.pause();
+        this.secondSound = new Audio();
+        this.secondSound.src = '../../../assets/images/povesti/0' + '/2.mp4';
+        this.secondSound.load();
+        this.secondSound.play();
+      } else if (this.correctPieces == 12) {
+        this.secondSound.pause();
+        this.thirdSound = new Audio();
+        this.thirdSound.src = '../../../assets/images/povesti/0' + '/3.mp4';
+        this.thirdSound.load();
+        this.thirdSound.play();
+      } else if (this.correctPieces == 16) {
+        this.thirdSound.pause();
+        this.fourthSound = new Audio();
+        this.fourthSound.src = '../../../assets/images/povesti/0' + '/4.mp4';
+        this.fourthSound.load();
+        this.fourthSound.play();
+      }
     }
   }
 
@@ -136,4 +175,7 @@ export class BoardComponent implements OnInit {
   onDragOver(ev: any): void {
     ev.preventDefault();
   }
+}
+function sleep(arg0: number) {
+  throw new Error('Function not implemented.');
 }
