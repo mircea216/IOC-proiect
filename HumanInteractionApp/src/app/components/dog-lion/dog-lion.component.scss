@@ -1,15 +1,15 @@
-@media (max-width:1217px) and (max-height:580px) {
+@media (max-width:1530px) and (max-height:750px) {
     .board-container {
         width: 100%;
         height: 100%;
     }
-    
+
 }
 
 .board-container {
     background: url("../../../assets/images/board-bgd.png");
-    height: 580px;
-    width: 1216px;    
+    height: 750px;
+    width: 1530px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -22,8 +22,8 @@
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 10px;
-    margin-top: 520px;
-    margin-left: 1130px;
+    margin-top: 690px;
+    margin-left: 1450px;
     height: 40px;
     width: 40px;
     position: absolute;
@@ -33,25 +33,25 @@
 
 .dog-holder {
     position: relative;
-    margin-left: 380px;
-    margin-top: 220px;
-    width: 300px;
-    height: 200px;
+    margin-left: 500px;
+    margin-top: 240px;
+    width: 350px;
+    height: 250px;
     cursor: pointer;
 }
 
 .lion-holder {
     margin-top: 190px;
-    width: 300px;
-    height: 270px;
+    width: 370px;
+    height: 340px;
     cursor: pointer;
 }
 
 .cock-holder {
     margin-left: 30px;
-    margin-top: 270px;
-    width: 200px;
-    height: 150px;
+    margin-top: 290px;
+    width: 250px;
+    height: 200px;
     cursor: pointer;
 }
 
@@ -59,6 +59,6 @@ canvas {
     width: 600px;
     display: block;
     margin-top: -500px;
-    margin-left: 630px;
+    margin-left: 700px;
     pointer-events: none;
 }

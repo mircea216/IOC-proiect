@@ -1,4 +1,4 @@
-@media (max-width:1217px) or (max-height:580px) {
+@media (max-width:1530px) or (max-height:750px) {
     .board-container {
         width: 100%;
         height: 100%;
@@ -8,8 +8,8 @@
 
 .board-container {
     background: url("../../../assets/images/board-bgd.png");
-    height: 580px;
-    width: 1217px;
+    height: 750px;
+    width: 1530px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -22,8 +22,8 @@
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 10px;
-    margin-top: 520px;
-    margin-left: 1130px;
+    margin-top: 690px;
+    margin-left: 1450px;
     height: 40px;
     width: 40px;
     position: absolute;
@@ -33,18 +33,18 @@
 
 .mouse-holder {
     position: relative;
-    margin-left: 600px;
-    margin-top: 300px;
-    width: 200px;
-    height: 150px;
+    margin-left: 620px;
+    margin-top: 330px;
+    width: 300px;
+    height: 250px;
     cursor: pointer;
 }
 
 .cat-holder {
     margin-left: 60px;
-    margin-top: 200px;
-    width: 200px;
-    height: 250px;
+    margin-top: 230px;
+    width: 300px;
+    height: 350px;
     cursor: pointer;
 }
 
@@ -52,6 +52,6 @@ canvas {
     width: 600px;
     display: block;
     margin-top: -500px;
-    margin-left: 630px;
+    margin-left: 800px;
     pointer-events: none;
 }
