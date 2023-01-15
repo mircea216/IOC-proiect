@@ -1,16 +1,15 @@
 <div class="container">
-  <span class="grid-placer">
-    <span>
-      <img class="good-apple-jar" src="../../../assets/images/jar-g-a.png" />
-      <img class="bad-apple-jar" src="../../../assets/images/jar-b-a.png" />
+    <span class="grid-placer">
+        <span>
+            <img class="good-apple-jar" src="../../../assets/images/jar-g-a.png" (click)="playAppleSound()">
+            <img class="bad-apple-jar" src="../../../assets/images/jar-b-a.png" (click)="playRetrySound()">
+        </span>
+        <span><img class="good-grape-jar" src="../../../assets/images/jar-g-g.png" (click)="playRetrySound()">
+            <img class="bad-grape-jar" src="../../../assets/images/jar-b-g.png" (click)="playGrapeSound()">
+        </span>
+        <span><img class="good-pear-jar" src="../../../assets/images/jar-b-p.png" (click)="playRetrySound()">
+            <img class="bad-pear-jar" src="../../../assets/images/jar-g-p.png" (click)="playPearSound()">
+        </span>
+        <button class="next-btn" routerLink="/healthy-food-2"></button>
     </span>
-    <span
-      ><img class="good-grape-jar" src="../../../assets/images/jar-g-g.png" />
-      <img class="bad-grape-jar" src="../../../assets/images/jar-b-g.png" />
-    </span>
-    <span
-      ><img class="good-pear-jar" src="../../../assets/images/jar-b-p.png" />
-      <img class="bad-pear-jar" src="../../../assets/images/jar-g-p.png" />
-    </span>
-  </span>
 </div>

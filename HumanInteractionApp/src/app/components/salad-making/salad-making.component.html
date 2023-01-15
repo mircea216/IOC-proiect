@@ -1,18 +1,16 @@
 <div class="container-plc">
-  <span class="grid-placer">
-    <img class="muppet-holder" src="../../../assets/images/muppet.png" />
-    <span>
-      <img class="meal1" src="../../../assets/images/meal-1.png" />
-      <img class="meal2" src="../../../assets/images/meal-2.png" />
+    <span class="grid-placer">
+        <img class="muppet-holder" src="../../../assets/images/muppet.png">
+        <span>
+            <img class="meal1" src="../../../assets/images/meal-1.png" (click)="playbreakfastSound()">
+            <img class="meal2" src="../../../assets/images/meal-2.png" (click)="playRetrySound()">
+        </span>
+        <span><img class="meal3" src="../../../assets/images/meal-3.png" (click)="playRetrySound()">
+            <img class="meal4" src="../../../assets/images/meal-4.png" (click)="playlunchSound()">
+        </span>
+        <span><img class="meal6" src="../../../assets/images/meal-6.png" (click)="playdinnerSound()">
+            <img class="meal5" src="../../../assets/images/meal-5.png" (click)="playRetrySound()">
+        </span>
+        <button class="next-btn" routerLink="/healthy-food-2"></button>
     </span>
-    <span
-      ><img class="meal3" src="../../../assets/images/meal-3.png" />
-      <img class="meal4" src="../../../assets/images/meal-4.png" />
-    </span>
-    <span
-      ><img class="meal6" src="../../../assets/images/meal-6.png" />
-      <img class="meal5" src="../../../assets/images/meal-5.png" />
-    </span>
-    <button class="next-btn" routerLink="/healthy-food-2"></button>
-  </span>
 </div>
