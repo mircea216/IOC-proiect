@@ -12,7 +12,12 @@ export class MenuComponent implements OnInit, OnDestroy {
   constructor(private router: Router) {}
 
   ngOnInit(): void {
-    this.points = localStorage.getItem('puncte');
+    if(localStorage.getItem('puncte')){
+      this.points = localStorage.getItem('puncte');
+    }
+    else{
+      localStorage.setItem('puncte', '0');
+    }
   }
 
   ngOnDestroy(): void {
