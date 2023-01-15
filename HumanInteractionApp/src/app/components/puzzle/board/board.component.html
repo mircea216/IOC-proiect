@@ -1,0 +1,13 @@
+<div class="board" [class.over]="over">
+  <div
+    *ngFor="let piece of pieces"
+    class="piece"
+    [id]="piece.index"
+    [style.backgroundImage]="piece.path"
+    [draggable]="piece.misplaced"
+    (dragstart)="onDrag($event)"
+    (drop)="onDrop($event)"
+    (dragover)="onDragOver($event)"
+    [class.placed]="!piece.misplaced"
+  ></div>
+</div>
