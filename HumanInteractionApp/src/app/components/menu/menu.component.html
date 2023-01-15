@@ -14,6 +14,7 @@
       alt="imagine pentru puzzle"
       src="../../../assets/images/menu-puzzle.png"
       (click)="goToPuzzle()"
+      [ngClass]="points == '9' ? 'available' : 'disable'"
     />
   </div>
   <img src="../../../assets/images/cufar.png" class="imagine-din-colt" />

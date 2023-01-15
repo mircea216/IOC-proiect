@@ -13,10 +13,10 @@ import { SaladMakingComponent } from './components/salad-making/salad-making.com
 
 const routes: Routes = [
   { path: 'round-1/:playSound', component: MouseCatComponent },
-  { path: 'round-2', component: DogLionComponent },
-  { path: 'round-3', component: RhynoElephantComponent },
-  { path: 'healthy-food-1', component: SaladMakingComponent },
-  { path: 'healthy-food-2', component: MealPreparationComponent },
+  { path: 'round-2/:playSound', component: DogLionComponent },
+  { path: 'round-3/:playSound', component: RhynoElephantComponent },
+  { path: 'healthy-food-1/:playSound', component: MealPreparationComponent },
+  { path: 'healthy-food-2/:playSound', component: SaladMakingComponent },
   { path: '', component: MenuComponent },
   { path: 'my-drawing', component: DrawingNumbersComponent },
   { path: 'puzzle', component: GameComponent },

@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-salad-making',
   templateUrl: './salad-making.component.html',
-  styleUrls: ['./salad-making.component.scss']
+  styleUrls: ['./salad-making.component.scss'],
 })
 export class SaladMakingComponent implements OnInit {
   private audioRetry: any;
@@ -11,47 +12,69 @@ export class SaladMakingComponent implements OnInit {
   private breakfastSound: any;
   private lunchSound: any;
   private dinnerSound: any;
+  breakfastCorrect = false;
+  lunchCorrect = false;
+  dinnerCorrect = false;
 
-  constructor() { }
+  constructor(private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.playGameSound();
   }
 
   playGameSound(): void {
-    this.mealSound = new Audio();
-    this.mealSound.src = "../../../assets/sound/m1.m4a"
-    this.mealSound.load();
-    this.mealSound.play();
+    this.route.params.subscribe((params) => {
+      if (params['playSound'] == '1') {
+        this.mealSound = new Audio();
+        this.mealSound.src = '../../../assets/sound/m1.m4a';
+        this.mealSound.load();
+        this.mealSound.play();
+      }
+    });
   }
-
 
   playRetrySound() {
     this.audioRetry = new Audio();
-    this.audioRetry.src = "../../../assets/sound/sd-4.m4a"
+    this.audioRetry.src = '../../../assets/sound/sd-3.m4a';
     this.audioRetry.load();
     this.audioRetry.play();
   }
 
   playbreakfastSound(): void {
-    this.breakfastSound = new Audio();
-    this.breakfastSound.src = "../../../assets/sound/m2.m4a"
-    this.breakfastSound.load();
-    this.breakfastSound.play();
+    if (!this.lunchCorrect && !this.breakfastCorrect && !this.dinnerCorrect) {
+      this.breakfastCorrect = true;
+      this.breakfastSound = new Audio();
+      this.breakfastSound.src = '../../../assets/sound/m2.m4a';
+      this.breakfastSound.load();
+      this.breakfastSound.play();
+    } else {
+      this.playRetrySound();
+    }
   }
 
   playlunchSound(): void {
-    this.lunchSound = new Audio();
-    this.lunchSound.src = "../../../assets/sound/m3.m4a"
-    this.lunchSound.load();
-    this.lunchSound.play();
+    if (this.breakfastCorrect && !this.lunchCorrect && !this.dinnerCorrect) {
+      this.lunchCorrect = true;
+      this.lunchSound = new Audio();
+      this.lunchSound.src = '../../../assets/sound/m3.m4a';
+      this.lunchSound.load();
+      this.lunchSound.play();
+    } else this.playRetrySound();
   }
 
   playdinnerSound(): void {
-    this.dinnerSound = new Audio();
-    this.dinnerSound.src = "../../../assets/sound/m4.m4a"
-    this.dinnerSound.load();
-    this.dinnerSound.play();
+    if (this.breakfastCorrect && this.lunchCorrect && !this.dinnerCorrect) {
+      this.dinnerCorrect = true;
+      this.dinnerSound = new Audio();
+      this.dinnerSound.src = '../../../assets/sound/m4.m4a';
+      this.dinnerSound.load();
+      this.dinnerSound.play();
+
+      setTimeout(() => {
+        localStorage.setItem('puncte', '9');
+        this.router.navigateByUrl('my-drawing');
+      }, 8000);
+    } else this.playRetrySound();
   }
 
   ngOnDestroy(): void {
