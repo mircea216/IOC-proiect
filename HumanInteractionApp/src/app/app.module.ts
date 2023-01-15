@@ -24,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CategoryService } from './components/puzzle/category.service';
 import { DictionaryService } from './components/puzzle/dictionary.service';
 import { GameDBService } from './components/puzzle/gamedb.service';
+import { DrawingNumbersComponent } from './components/drawing-numbers/drawing-numbers.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { GameDBService } from './components/puzzle/gamedb.service';
     ImageHistoryComponent,
     NavigationComponent,
     StatsComponent,
+    DrawingNumbersComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [CategoryService, DictionaryService, GameDBService],

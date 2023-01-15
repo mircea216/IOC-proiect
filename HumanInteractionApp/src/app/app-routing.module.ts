@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DogLionComponent } from './components/dog-lion/dog-lion.component';
+import { DrawingNumbersComponent } from './components/drawing-numbers/drawing-numbers.component';
 import { MealPreparationComponent } from './components/meal-preparation/meal-preparation.component';
 import { MouseCatComponent } from './components/mouse-cat/mouse-cat.component';
 import { GameComponent } from './components/puzzle/game/game.component';
@@ -15,7 +16,7 @@ const routes: Routes = [
   { path: 'round-3', component: RhynoElephantComponent },
   { path: 'healthy-food-1', component: SaladMakingComponent },
   { path: 'healthy-food-2', component: MealPreparationComponent },
-  { path: '', component: GameComponent },
+  { path: '', component: DrawingNumbersComponent },
   { path: 'history', component: HistoryComponent },
   { path: 'repository', component: RepositoryComponent },
 ];
