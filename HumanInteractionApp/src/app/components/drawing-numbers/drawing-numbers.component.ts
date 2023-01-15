@@ -28,7 +28,7 @@ export class DrawingNumbersComponent {
 
    state = 'intro';
    sound = true;
-   cifra='5';
+   cifra='2';
    currentstate:any;
    startbutton:any ;
    infobutton:any ;
@@ -43,7 +43,7 @@ export class DrawingNumbersComponent {
 
     this.startbutton = document.querySelector('#intro button')!!.addEventListener('click', this.start, false);
     this.winbutton = document.querySelector('#win button')!!.addEventListener('click', this.winner, false);
-    this.reloadbutton = document.querySelector('#reload')!!.addEventListener('click', this.cancel, false);
+
     this.errorbutton = document.querySelector('#error button')!!.addEventListener('click', this.retry, false);
  
      this.winsound = document.querySelector('#winsound') as HTMLAudioElement;
