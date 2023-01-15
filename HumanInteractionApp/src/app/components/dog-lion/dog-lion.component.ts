@@ -59,14 +59,14 @@ export class DogLionComponent implements OnInit, OnDestroy {
 
   playCorrectSound() {
     this.audioCorrect = new Audio();
-    this.audioCorrect.src = '../../../assets/sound/correct.m4a';
+    this.audioCorrect.src = '../../../assets/sound/i3.m4a';
     this.audioCorrect.load();
     this.audioCorrect.play();
   }
 
   playRetrySound() {
     this.audioRetry = new Audio();
-    this.audioRetry.src = '../../../assets/sound/retry-sound.m4a';
+    this.audioRetry.src = '../../../assets/sound/try.m4a';
     this.audioRetry.load();
     this.audioRetry.play();
   }

@@ -66,7 +66,7 @@ export class MealPreparationComponent implements OnInit, OnDestroy {
     if (this.appleCorrect && this.grapeCorrect && !this.pearCorrect) {
       this.pearCorrect = true;
       this.pearSound = new Audio();
-      this.pearSound.src = '../../../assets/sound/sd-4.m4a';
+      this.pearSound.src = '../../../assets/sound/i5.m4a';
       this.pearSound.load();
       this.pearSound.play();
 

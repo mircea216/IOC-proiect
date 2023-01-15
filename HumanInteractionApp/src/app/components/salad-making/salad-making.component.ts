@@ -66,7 +66,7 @@ export class SaladMakingComponent implements OnInit {
     if (this.breakfastCorrect && this.lunchCorrect && !this.dinnerCorrect) {
       this.dinnerCorrect = true;
       this.dinnerSound = new Audio();
-      this.dinnerSound.src = '../../../assets/sound/m4.m4a';
+      this.dinnerSound.src = '../../../assets/sound/i6.m4a';
       this.dinnerSound.load();
       this.dinnerSound.play();
 

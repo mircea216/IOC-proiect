@@ -1,88 +1,90 @@
-@media (max-width:1217px) and (max-height:580px) {
-    .container-plc {
-        width: 100%;
-        height: 100%;
-    }
-    
-}
-.container-plc {
-    background: url("../../../assets/images/background-meal.png");
-    height: 580px;
-    width: 1217px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    overflow: hidden;
+@media (max-width: 1530px) and (max-height: 750px) {
+  .container-plc {
+    width: 100%;
+    height: 100%;
+  }
+
 }
 
-.next-btn{
-    height: 30px;
-    width: 30px;
-    background-image: url("../../../assets/images/nextimg.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-radius: 100%;
-    cursor: pointer;
+.container-plc {
+  background: url("../../../assets/images/background-meal.png");
+  height: 750px;
+  width: 1530px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.next-btn {
+  height: 45px;
+  width: 45px;
+  margin-left: 40px;
+  background-image: url("../../../assets/images/nextimg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 100%;
+  cursor: pointer;
 }
 
 .muppet-holder {
-    margin-left: 0px;
-    margin-top: 150px;
-    width: 520px;
-    height: 450px;
-    float: left;
+  margin-left: 0px;
+  margin-top: 150px;
+  width: 520px;
+  height: 450px;
+  float: left;
 }
 
-.meal1{
-    margin-left: 100px;
-    margin-right: 100px;
-    height: 160px;
-    width: 200px;
-    margin-top: 15px;
-    cursor: pointer;
+.meal1 {
+  margin-left: 230px;
+  margin-right: 100px;
+  height: 190px;
+  width: 270px;
+  margin-top: 40px;
+  cursor: pointer;
 }
 
 .meal2 {
-    height: 160px;
-    width: 200px;
-    margin-top: 15px;
-    cursor: pointer;
+  height: 190px;
+  width: 270px;
+  margin-top: 15px;
+  cursor: pointer;
 }
 
 .meal3 {
-    margin-left: 70px;
-    margin-right: 30px;
-    height: 200px;
-    width: 280px;
-    margin-top: 30px;
-    cursor: pointer;
+  margin-left: 200px;
+  margin-right: 30px;
+  height: 230px;
+  width: 330px;
+  margin-top: 30px;
+  cursor: pointer;
 }
 
 .meal4 {
-    height: 200px;
-    width: 280px;
-    margin-top: 30px;
-    cursor: pointer;
+  height: 230px;
+  width: 330px;
+  margin-top: 30px;
+  cursor: pointer;
 }
 
 .meal6 {
-    margin-left: 100px;
-    margin-right: 100px;
-    height: 160px;
-    width: 230px;
-    cursor: pointer;
+  margin-left: 220px;
+  margin-right: 100px;
+  height: 190px;
+  width: 280px;
+  cursor: pointer;
 }
 
 .meal5 {
-    height: 160px;
-    width: 230px;
-    cursor: pointer;
+  height: 190px;
+  width: 280px;
+  cursor: pointer;
 }
 
-.span{
-    float: left;
+.span {
+  float: left;
 }
 
 .grid-placer {
-    display: inline-block;
+  display: inline-block;
 }
