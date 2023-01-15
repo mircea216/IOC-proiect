@@ -270,6 +270,14 @@ export class DrawingNumbersComponent {
           setTimeout(() => {
             if (localStorage.getItem('puncte') == '1') {
               this.router.navigateByUrl('round-1/0');
+            } else if (localStorage.getItem('puncte') == '2') {
+              this.router.navigateByUrl('round-2/0');
+            } else if (localStorage.getItem('puncte') == '3') {
+              this.router.navigateByUrl('round-3/0');
+            } else if (localStorage.getItem('puncte') == '6') {
+              this.router.navigateByUrl('healthy-food-1/0');
+            } else if (localStorage.getItem('puncte') == '9') {
+              this.router.navigateByUrl('healthy-food-2/0');
             }
           }, 8000);
         }
