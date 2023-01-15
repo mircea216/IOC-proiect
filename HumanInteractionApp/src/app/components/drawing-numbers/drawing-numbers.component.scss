@@ -141,15 +141,37 @@
   }
   .check p::after {
     content: '✔';
-    font-size: 20vw;
+    font-size: 30vw;
     position: absolute;
-    top: 10vh;
+    top: -10vh;
     z-index: 1;
-    left: 60%;
+    left: 50%;
     color: #060;
     color: rgba(0,200,0,0.4);
   }
   
+  .ics p::after {
+    content: '❌';
+    font-size: 20vw;
+    position: absolute;
+    top: 13vh;
+    z-index: 1;
+    left: 40%;
+    color: rgb(102, 0, 0);
+    color: rgba(200, 0, 0, 0.4);
+  }
+  
+  .emoji p::after {
+    content: '😃';
+    font-size: 20vw;
+    position: absolute;
+    top: 13vh;
+    z-index: 1;
+    left: 40%;
+    color: rgb(234, 204, 13);
+    color: rgba(247, 255, 2, 0.4);
+  }
+
   .toppanel {
     position: absolute;
     top: 0;

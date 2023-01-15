@@ -29,7 +29,7 @@ export class DrawingNumbersComponent {
   touched = false;
   oldx = 0;
   oldy = 0;
-
+ playedErr=false;
   state = 'intro';
   sound = true;
   currentstate: any;
@@ -56,8 +56,6 @@ export class DrawingNumbersComponent {
       .querySelector('#error button')!!
       .addEventListener('click', this.retry, false);
 
-    this.winsound = document.querySelector('#winsound') as HTMLAudioElement;
-    this.errorsound = document.querySelector('#errorsound') as HTMLAudioElement;
     this.c = document.querySelector('canvas');
     this.cx = this.c.getContext('2d');
 
@@ -68,18 +66,20 @@ export class DrawingNumbersComponent {
     this.linewidth = this.container.offsetHeight / 19;
     this.paintletter();
     this.setstate('intro');
+    let audio = new Audio();
+    audio.src = '../../../assets/sound/coloreaza.ogg';
+    audio.load();
+    audio.play();
   }
 
   showerror = () => {
     this.setstate('error');
-    if (this.sound) {
+    if (this.sound && !this.playedErr) {
+      this.playedErr=true;
       let audio = new Audio();
-      audio.src = 'assets/error-126627.mp3';
+      audio.src = '../../../assets/sound/teapa.ogg';
       audio.load();
       audio.play();
-    }
-    if (navigator.vibrate) {
-      navigator.vibrate(100);
     }
   };
 
@@ -88,6 +88,7 @@ export class DrawingNumbersComponent {
     this.container.className = newstate;
   }
   retry = (ev: any) => {
+    this.playedErr=false
     this.mousedown = false;
     this.oldx = 0;
     this.oldy = 0;
@@ -260,7 +261,7 @@ export class DrawingNumbersComponent {
         if (this.sound && !this.played) {
           this.played = true;
           let audio = new Audio();
-          audio.src = '../../../assets/sound/correct.m4a';
+          audio.src = '../../../assets/sound/bravo.ogg';
           audio.load();
           audio.play();
 
