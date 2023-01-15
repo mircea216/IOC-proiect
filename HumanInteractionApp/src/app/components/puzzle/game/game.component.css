@@ -9,3 +9,11 @@
     margin: 0 auto;
   }
 }
+
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
+}

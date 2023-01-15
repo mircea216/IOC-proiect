@@ -109,7 +109,7 @@ export class BoardComponent implements OnInit {
   }
 
   private misplacedCheck(piece: Piece): void {
-    this.startSound.pause();
+    // this.startSound.pause();
 
     piece.misplaced = !(piece.id === piece.index);
     if (piece.misplaced) {
