@@ -69,7 +69,8 @@ export class GameComponent implements OnInit, OnDestroy {
 
     if (this.startSound) this.startSound.pause();
     this.startSound = new Audio();
-    this.startSound.src = '../../../assets/images/povesti/0' + '/0.mp4';
+    this.startSound.src =
+      '../../../assets/images/povesti/' + this.image + '/0.mp4';
     this.startSound.load();
     this.startSound.play();
   }

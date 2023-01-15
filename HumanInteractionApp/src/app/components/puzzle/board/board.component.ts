@@ -36,10 +36,6 @@ export class BoardComponent implements OnInit {
 
   ngOnInit(): void {
     this.reset();
-    // this.startSound = new Audio();
-    // this.startSound.src = '../../../assets/images/povesti/0' + '/0.mp4';
-    // this.startSound.load();
-    // this.startSound.play();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -118,25 +114,29 @@ export class BoardComponent implements OnInit {
       this.correctPieces++;
       if (this.correctPieces == 4) {
         this.firstSound = new Audio();
-        this.firstSound.src = '../../../assets/images/povesti/0' + '/1.mp4';
+        this.firstSound.src =
+          '../../../assets/images/povesti/' + this.image + '/1.mp4';
         this.firstSound.load();
         this.firstSound.play();
       } else if (this.correctPieces == 8) {
         this.firstSound.pause();
         this.secondSound = new Audio();
-        this.secondSound.src = '../../../assets/images/povesti/0' + '/2.mp4';
+        this.secondSound.src =
+          '../../../assets/images/povesti/' + this.image + '/2.mp4';
         this.secondSound.load();
         this.secondSound.play();
       } else if (this.correctPieces == 12) {
         this.secondSound.pause();
         this.thirdSound = new Audio();
-        this.thirdSound.src = '../../../assets/images/povesti/0' + '/3.mp4';
+        this.thirdSound.src =
+          '../../../assets/images/povesti/' + this.image + '/3.mp4';
         this.thirdSound.load();
         this.thirdSound.play();
       } else if (this.correctPieces == 16) {
         this.thirdSound.pause();
         this.fourthSound = new Audio();
-        this.fourthSound.src = '../../../assets/images/povesti/0' + '/4.mp4';
+        this.fourthSound.src =
+          '../../../assets/images/povesti/' + this.image + '/4.mp4';
         this.fourthSound.load();
         this.fourthSound.play();
       }
