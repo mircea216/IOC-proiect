@@ -20,14 +20,19 @@ export class MenuComponent implements OnInit, OnDestroy {
   }
 
   goToFood() {
-    this.router.navigateByUrl('healthy-food-1/1');
+    if (localStorage.getItem('puncte') == '3')
+      this.router.navigateByUrl('healthy-food-1/1');
   }
 
   goToAnimals() {
-    this.router.navigateByUrl('round-1/1');
+    if (localStorage.getItem('puncte') == '0')
+      this.router.navigateByUrl('round-1/1');
   }
 
   goToPuzzle() {
-    this.router.navigateByUrl('puzzle');
+    if (localStorage.getItem('puncte') == '9')
+      this.router.navigateByUrl('puzzle');
   }
+
+  playSoundWithPoints() {}
 }

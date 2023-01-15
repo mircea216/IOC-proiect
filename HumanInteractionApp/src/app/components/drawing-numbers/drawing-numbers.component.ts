@@ -52,9 +52,6 @@ export class DrawingNumbersComponent {
     this.winbutton = document
       .querySelector('#win button')!!
       .addEventListener('click', this.winner, false);
-    this.reloadbutton = document
-      .querySelector('#reload')!!
-      .addEventListener('click', this.cancel, false);
     this.errorbutton = document
       .querySelector('#error button')!!
       .addEventListener('click', this.retry, false);
