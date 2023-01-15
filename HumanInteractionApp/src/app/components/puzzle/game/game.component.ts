@@ -24,6 +24,8 @@ export class GameComponent implements OnInit, OnDestroy {
   goal: string = '';
   end: string = '';
 
+  private startSound: any;
+
   constructor(
     private dictionary: DictionaryService,
     private gamedb: GameDBService
@@ -64,6 +66,12 @@ export class GameComponent implements OnInit, OnDestroy {
       clearInterval(this.intervalId);
     }
     this.refreshTimer();
+
+    if (this.startSound) this.startSound.pause();
+    this.startSound = new Audio();
+    this.startSound.src = '../../../assets/images/povesti/0' + '/0.mp4';
+    this.startSound.load();
+    this.startSound.play();
   }
 
   onCategoryChange(category: any): void {

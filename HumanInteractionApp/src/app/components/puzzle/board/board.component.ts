@@ -36,10 +36,10 @@ export class BoardComponent implements OnInit {
 
   ngOnInit(): void {
     this.reset();
-    this.startSound = new Audio();
-    this.startSound.src = '../../../assets/images/povesti/0' + '/0.mp4';
-    this.startSound.load();
-    this.startSound.play();
+    // this.startSound = new Audio();
+    // this.startSound.src = '../../../assets/images/povesti/0' + '/0.mp4';
+    // this.startSound.load();
+    // this.startSound.play();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
