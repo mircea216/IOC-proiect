@@ -4,7 +4,7 @@
     class="piece"
     [id]="piece.index"
     [style.backgroundImage]="piece.path"
-    draggable="true"
+    [draggable]="piece.misplaced"
     (dragstart)="onDrag($event)"
     (drop)="onDrop($event)"
     (dragover)="onDragOver($event)"
