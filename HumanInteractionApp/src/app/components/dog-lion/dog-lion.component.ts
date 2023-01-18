@@ -43,7 +43,7 @@ export class DogLionComponent implements OnInit, OnDestroy {
     setTimeout(() => {
       localStorage.setItem('puncte', '2');
       this.router.navigateByUrl('my-drawing');
-    }, 8000);
+    }, 6500);
   }
 
   playGameSound(): void {

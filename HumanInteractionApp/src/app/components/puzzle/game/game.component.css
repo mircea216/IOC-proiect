@@ -1,3 +1,12 @@
+@keyframes example {
+  from {
+    transform: translateY(-200px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+
 .game {
   width: 100%;
   text-align: center;
@@ -30,4 +39,15 @@ canvas {
   margin-top: -700px;
   margin-left: 180px;
   pointer-events: none;
+}
+
+.diploma {
+  width: 600px;
+  height: 400px;
+  display: block;
+  margin-top: -500px;
+  margin-left: 500px;
+  animation: example 1s;
+  animation-timing-function: ease-in;
+  /* pointer-events: none; */
 }

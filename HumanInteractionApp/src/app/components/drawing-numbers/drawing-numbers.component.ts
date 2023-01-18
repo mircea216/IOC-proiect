@@ -29,7 +29,7 @@ export class DrawingNumbersComponent {
   touched = false;
   oldx = 0;
   oldy = 0;
- playedErr=false;
+  playedErr = false;
   state = 'intro';
   sound = true;
   currentstate: any;
@@ -75,7 +75,7 @@ export class DrawingNumbersComponent {
   showerror = () => {
     this.setstate('error');
     if (this.sound && !this.playedErr) {
-      this.playedErr=true;
+      this.playedErr = true;
       let audio = new Audio();
       audio.src = '../../../assets/sound/teapa.ogg';
       audio.load();
@@ -88,7 +88,7 @@ export class DrawingNumbersComponent {
     this.container.className = newstate;
   }
   retry = (ev: any) => {
-    this.playedErr=false
+    this.playedErr = false;
     this.mousedown = false;
     this.oldx = 0;
     this.oldy = 0;
@@ -277,7 +277,7 @@ export class DrawingNumbersComponent {
             } else if (localStorage.getItem('puncte') == '9') {
               this.router.navigateByUrl('healthy-food-2/0');
             }
-          }, 8000);
+          }, 6000);
         }
       }
     }

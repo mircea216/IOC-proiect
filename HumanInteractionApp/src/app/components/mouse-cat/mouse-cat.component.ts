@@ -1,14 +1,19 @@
-import {Component, ElementRef, OnDestroy, OnInit, Renderer2} from '@angular/core';
-import {ActivatedRoute, Route, Router} from '@angular/router';
+import {
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  Renderer2,
+} from '@angular/core';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import * as confetti from 'canvas-confetti';
 
 @Component({
   selector: 'app-mouse-cat',
   templateUrl: './mouse-cat.component.html',
-  styleUrls: ['./mouse-cat.component.scss']
+  styleUrls: ['./mouse-cat.component.scss'],
 })
 export class MouseCatComponent implements OnInit, OnDestroy {
-
   private audioGame: any;
   private audioCorrect: any;
   private audioRetry: any;
@@ -33,8 +38,7 @@ export class MouseCatComponent implements OnInit, OnDestroy {
     private elementRef: ElementRef,
     private router: Router,
     private route: ActivatedRoute
-  ) {
-  }
+  ) {}
 
   surprise(): void {
     const canvas = this.renderer2.createElement('canvas');
@@ -51,9 +55,8 @@ export class MouseCatComponent implements OnInit, OnDestroy {
     setTimeout(() => {
       localStorage.setItem('puncte', '1');
       this.router.navigateByUrl('my-drawing');
-    }, 8000);
+    }, 6500);
   }
-
 
   ngOnDestroy(): void {
     if (this.audioGame) {
@@ -72,14 +75,14 @@ export class MouseCatComponent implements OnInit, OnDestroy {
 
   playCorrectSound() {
     this.audioCorrect = new Audio();
-    this.audioCorrect.src = "../../../assets/sound/i2.m4a"
+    this.audioCorrect.src = '../../../assets/sound/i2.m4a';
     this.audioCorrect.load();
     this.audioCorrect.play();
   }
 
   playRetrySound() {
     this.audioRetry = new Audio();
-    this.audioRetry.src = "../../../assets/sound/try.m4a"
+    this.audioRetry.src = '../../../assets/sound/try.m4a';
     this.audioRetry.load();
     this.audioRetry.play();
   }

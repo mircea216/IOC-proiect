@@ -38,7 +38,7 @@ export class RhynoElephantComponent implements OnInit {
     setTimeout(() => {
       localStorage.setItem('puncte', '3');
       this.router.navigateByUrl('my-drawing');
-    }, 8000);
+    }, 6500);
   }
 
   playGameSound(): void {

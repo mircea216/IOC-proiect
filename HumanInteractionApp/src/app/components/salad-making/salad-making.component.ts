@@ -73,7 +73,7 @@ export class SaladMakingComponent implements OnInit {
       setTimeout(() => {
         localStorage.setItem('puncte', '9');
         this.router.navigateByUrl('my-drawing');
-      }, 8000);
+      }, 7000);
     } else this.playRetrySound();
   }
 
