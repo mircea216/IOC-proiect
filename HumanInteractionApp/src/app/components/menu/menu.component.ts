@@ -8,7 +8,8 @@ import { Router } from '@angular/router';
 })
 export class MenuComponent implements OnInit, OnDestroy {
   points: string | null = '0';
-
+  pointsSound: any;
+  introSound: any;
   constructor(private router: Router) {}
 
   ngOnInit(): void {
@@ -23,7 +24,15 @@ export class MenuComponent implements OnInit, OnDestroy {
     localStorage.setItem('puncte', '0');
   }
 
+  playIntroSound() {
+    this.pointsSound = new Audio();
+    this.pointsSound.src = '../../../assets/sound/menu/BineAiVenit.mp4';
+    this.pointsSound.load();
+    this.pointsSound.play();
+  }
+
   goToFood() {
+    if (this.introSound) this.introSound.pause();
     if (
       localStorage.getItem('puncte') == '3' ||
       localStorage.getItem('puncte') == '4' ||
@@ -36,6 +45,7 @@ export class MenuComponent implements OnInit, OnDestroy {
   }
 
   goToAnimals() {
+    if (this.introSound) this.introSound.pause();
     if (
       localStorage.getItem('puncte') == '0' ||
       localStorage.getItem('puncte') == '1' ||
@@ -45,9 +55,19 @@ export class MenuComponent implements OnInit, OnDestroy {
   }
 
   goToPuzzle() {
+    if (this.introSound) this.introSound.pause();
     if (localStorage.getItem('puncte') == '9')
       this.router.navigateByUrl('puzzle');
   }
 
-  playSoundWithPoints() {}
+  playSoundWithPoints() {
+    if (this.introSound) this.introSound.pause();
+    this.pointsSound = new Audio();
+    this.pointsSound.src =
+      '../../../assets/sound/menu/' +
+      localStorage.getItem('puncte') +
+      'puncte.mp4';
+    this.pointsSound.load();
+    this.pointsSound.play();
+  }
 }
