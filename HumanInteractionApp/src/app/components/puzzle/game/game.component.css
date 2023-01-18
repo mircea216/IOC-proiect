@@ -4,6 +4,11 @@
   margin: 0 auto;
 }
 
+.bg {
+  height: 100%;
+  background-image: url("../../../../assets/images/background-meal.png");
+}
+
 @media screen and (max-width: 500px) {
   .game {
     margin: 0 auto;
@@ -16,4 +21,13 @@
 
 .column {
   flex: 50%;
+}
+
+canvas {
+  width: 1300px;
+  height: 700px;
+  display: block;
+  margin-top: -700px;
+  margin-left: 180px;
+  pointer-events: none;
 }

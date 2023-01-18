@@ -1,28 +1,34 @@
-<div id="game" class="game" class="row">
-  <!-- <div class="info">{{goal}}</div> -->
+<div class="bg">
+  <div id="game" class="game" class="row">
+    <!-- <div class="info">{{goal}}</div> -->
+    <div class="column">
+      <app-category (categoryChange)="onCategoryChange($event)"></app-category>
 
-  <div class="column">
-    <app-category (categoryChange)="onCategoryChange($event)"></app-category>
+      <app-image
+        [folder]="folder"
+        [image]="image"
+        (imageChange)="onImageChange($event)"
+      ></app-image>
 
-    <app-image
-      [folder]="folder"
-      [image]="image"
-      (imageChange)="onImageChange($event)"
-    ></app-image>
+      <app-stats
+        *ngIf="over"
+        [time]="time"
+        [moves]="moves"
+        [fails]="fails"
+      ></app-stats>
+    </div>
 
-    <app-stats [time]="time" [moves]="moves" [fails]="fails"></app-stats>
+    <div class="column">
+      <app-board
+        *ngIf="folder"
+        [folder]="folder"
+        [image]="image"
+        (statsChange)="onStatsChange($event)"
+      ></app-board>
+    </div>
   </div>
 
-  <div class="column">
-    <app-board
-      *ngIf="folder"
-      [folder]="folder"
-      [image]="image"
-      (statsChange)="onStatsChange($event)"
-    ></app-board>
+  <div *ngIf="over" class="info">
+    <span>{{ end }}</span>
   </div>
-</div>
-
-<div *ngIf="over" class="info">
-  <span>{{ end }}</span>
 </div>

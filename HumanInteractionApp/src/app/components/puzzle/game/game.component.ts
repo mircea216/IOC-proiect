@@ -1,7 +1,14 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  Renderer2,
+  ElementRef,
+} from '@angular/core';
 import { Subscription } from 'rxjs';
 import { DictionaryService } from '../dictionary.service';
 import { GameDBService } from '../gamedb.service';
+import * as confetti from 'canvas-confetti';
 
 @Component({
   selector: 'app-game',
@@ -28,7 +35,9 @@ export class GameComponent implements OnInit, OnDestroy {
 
   constructor(
     private dictionary: DictionaryService,
-    private gamedb: GameDBService
+    private gamedb: GameDBService,
+    private renderer2: Renderer2,
+    private elementRef: ElementRef
   ) {}
 
   ngOnInit(): void {
@@ -36,7 +45,7 @@ export class GameComponent implements OnInit, OnDestroy {
       .getTranslations()
       .subscribe((data: any) => {
         this.goal = data['GAME_GOAL'];
-        this.end = 'Ai castigat!';
+        this.end = 'Ai câștigat!';
       });
   }
 
@@ -97,6 +106,17 @@ export class GameComponent implements OnInit, OnDestroy {
     this.moves = moves;
     this.fails = fails;
     this.over = over;
+    if (over) {
+      const canvas = this.renderer2.createElement('canvas');
+
+      this.renderer2.appendChild(this.elementRef.nativeElement, canvas);
+
+      const myConfetti = confetti.create(canvas, {
+        resize: true, // will fit all screen sizes,
+      });
+
+      myConfetti();
+    }
     this.save();
   }
 
