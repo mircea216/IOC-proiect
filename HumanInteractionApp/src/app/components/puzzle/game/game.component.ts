@@ -16,7 +16,7 @@ export class GameComponent implements OnInit, OnDestroy {
   private categoryId: number = -1;
   private seconds: number = 0;
   folder: string = '';
-  image: number = 0;
+  image: number = -1;
   over: boolean = false;
   time: string = '';
   moves: number = 0;
@@ -66,7 +66,13 @@ export class GameComponent implements OnInit, OnDestroy {
       clearInterval(this.intervalId);
     }
     this.refreshTimer();
+  }
 
+  onCategoryChange(category: any): void {
+    this.categoryId = category.categoryId;
+    this.folder = category.folder;
+    this.reset();
+    this.image = Math.floor(Math.random() * this.imagesPerCategory);
     if (this.startSound) this.startSound.pause();
     this.startSound = new Audio();
     this.startSound.src =
@@ -75,16 +81,16 @@ export class GameComponent implements OnInit, OnDestroy {
     this.startSound.play();
   }
 
-  onCategoryChange(category: any): void {
-    this.categoryId = category.categoryId;
-    this.folder = category.folder;
-    this.reset();
-    this.image = Math.floor(Math.random() * this.imagesPerCategory);
-  }
-
   onImageChange(image: any): void {
     this.image = image;
     this.reset();
+
+    if (this.startSound) this.startSound.pause();
+    this.startSound = new Audio();
+    this.startSound.src =
+      '../../../assets/images/povesti/' + this.image + '/0.mp4';
+    this.startSound.load();
+    this.startSound.play();
   }
 
   onStatsChange({ moves = 0, fails = 0, over = false }): void {
