@@ -49,6 +49,7 @@ export class BoardComponent implements OnInit {
   }
 
   private reset(): void {
+    this.correctPieces = 0;
     this.moves = 0;
     this.fails = 0;
     this.shufflePieces();
@@ -139,6 +140,7 @@ export class BoardComponent implements OnInit {
           '../../../assets/images/povesti/' + this.image + '/4.mp4';
         this.fourthSound.load();
         this.fourthSound.play();
+        this.correctPieces = 0;
       }
     }
   }
