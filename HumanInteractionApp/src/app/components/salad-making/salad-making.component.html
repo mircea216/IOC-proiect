@@ -37,6 +37,6 @@
         (click)="playRetrySound()"
       />
     </span>
-    <button class="next-btn" routerLink=""></button>
+    <button *ngIf="buttonDisable" class="next-btn" routerLink=""></button>
   </span>
 </div>

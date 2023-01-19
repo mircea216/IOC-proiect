@@ -9,5 +9,5 @@
     class="cat-holder"
     src="../../../assets/images/cat.png"
   />
-  <button class="next-btn" type="image" routerLink="/round-2/1"></button>
+  <button *ngIf="buttonDisable"  class="next-btn" type="image" routerLink="/round-2/1"></button>
 </div>

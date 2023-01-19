@@ -15,10 +15,17 @@ export class MealPreparationComponent implements OnInit, OnDestroy {
   appleCorrect = false;
   grapeCorrect = false;
   pearCorrect = false;
-
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  buttonDisable: boolean | undefined;
+  
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.buttonDisable = true;
+    this.route.params.subscribe((value) => {
+      if (value['playSound'] === '1') {
+        this.buttonDisable = false;
+      }
+    });
     this.playGameSound();
   }
 
