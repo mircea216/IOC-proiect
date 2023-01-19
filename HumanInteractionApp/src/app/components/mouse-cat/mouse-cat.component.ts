@@ -17,8 +17,15 @@ export class MouseCatComponent implements OnInit, OnDestroy {
   private audioGame: any;
   private audioCorrect: any;
   private audioRetry: any;
+  buttonDisable: boolean | undefined = true;
 
   ngOnInit(): void {
+    this.buttonDisable = true;
+    this.route.params.subscribe((value) => {
+      if (value['playSound'] === '1') {
+        this.buttonDisable = false;
+      }
+    });
     this.playGameSound();
   }
 
@@ -38,7 +45,7 @@ export class MouseCatComponent implements OnInit, OnDestroy {
     private elementRef: ElementRef,
     private router: Router,
     private route: ActivatedRoute
-  ) {}
+  ) { }
 
   surprise(): void {
     const canvas = this.renderer2.createElement('canvas');

@@ -9,6 +9,7 @@ import { Subscription } from 'rxjs';
 import { DictionaryService } from '../dictionary.service';
 import { GameDBService } from '../gamedb.service';
 import * as confetti from 'canvas-confetti';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-game',
@@ -37,8 +38,9 @@ export class GameComponent implements OnInit, OnDestroy {
     private dictionary: DictionaryService,
     private gamedb: GameDBService,
     private renderer2: Renderer2,
-    private elementRef: ElementRef
-  ) {}
+    private elementRef: ElementRef,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.subscription = this.dictionary
@@ -51,6 +53,10 @@ export class GameComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.subscription?.unsubscribe();
+    if (this.startSound) {
+      this.startSound.pause();
+      this.startSound = null;
+    }
   }
 
   refreshTimer(): void {
@@ -131,5 +137,10 @@ export class GameComponent implements OnInit, OnDestroy {
         fails: this.fails,
       });
     }
+  }
+
+  backToMenu(): void {
+    this.router.navigateByUrl("");
+    localStorage.setItem("puncte", "0");
   }
 }

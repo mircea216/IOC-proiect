@@ -11,15 +11,22 @@ export class RhynoElephantComponent implements OnInit {
   private audioGame: any;
   private audioCorrect: any;
   private audioRetry: any;
+  buttonDisable: boolean | undefined;
 
   constructor(
     private renderer2: Renderer2,
     private elementRef: ElementRef,
     private router: Router,
     private route: ActivatedRoute
-  ) {}
+  ) { }
 
   ngOnInit(): void {
+    this.buttonDisable = true;
+    this.route.params.subscribe((value) => {
+      if (value['playSound'] === '1') {
+        this.buttonDisable = false;
+      }
+    });
     this.playGameSound();
   }
 
