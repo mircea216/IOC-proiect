@@ -5,7 +5,7 @@ import {
   OnInit,
   Renderer2,
 } from '@angular/core';
-import { ActivatedRoute, Route, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import * as confetti from 'canvas-confetti';
 
 @Component({
@@ -19,6 +19,10 @@ export class MouseCatComponent implements OnInit, OnDestroy {
   private audioRetry: any;
   buttonDisable: boolean | undefined = true;
 
+  win = false;
+
+  secondTour = false;
+
   ngOnInit(): void {
     this.buttonDisable = true;
     this.route.params.subscribe((value) => {
@@ -30,14 +34,22 @@ export class MouseCatComponent implements OnInit, OnDestroy {
   }
 
   playGameSound(): void {
-    this.route.params.subscribe((params) => {
-      if (params['playSound'] == '1') {
-        this.audioGame = new Audio();
-        this.audioGame.src = '../../../assets/sound/i1.m4a';
-        this.audioGame.load();
-        this.audioGame.play();
-      }
-    });
+    if (!this.win && !this.secondTour) {
+      if (this.audioCorrect) this.audioCorrect.pause();
+      if (this.audioRetry) this.audioRetry.pause();
+      if (this.audioGame) this.audioGame.pause();
+
+      this.route.params.subscribe((params) => {
+        if (params['playSound'] == '1') {
+          this.audioGame = new Audio();
+          this.audioGame.src = '../../../assets/sound/i1.m4a';
+          this.audioGame.load();
+          this.audioGame.play();
+        } else {
+          this.secondTour = true;
+        }
+      });
+    }
   }
 
   constructor(
@@ -45,7 +57,7 @@ export class MouseCatComponent implements OnInit, OnDestroy {
     private elementRef: ElementRef,
     private router: Router,
     private route: ActivatedRoute
-  ) { }
+  ) {}
 
   surprise(): void {
     const canvas = this.renderer2.createElement('canvas');
@@ -58,11 +70,6 @@ export class MouseCatComponent implements OnInit, OnDestroy {
 
     myConfetti();
     this.playCorrectSound();
-
-    setTimeout(() => {
-      localStorage.setItem('puncte', '1');
-      this.router.navigateByUrl('my-drawing');
-    }, 6500);
   }
 
   ngOnDestroy(): void {
@@ -81,16 +88,34 @@ export class MouseCatComponent implements OnInit, OnDestroy {
   }
 
   playCorrectSound() {
-    this.audioCorrect = new Audio();
-    this.audioCorrect.src = '../../../assets/sound/i2.m4a';
-    this.audioCorrect.load();
-    this.audioCorrect.play();
+    if (!this.win && !this.secondTour) {
+      if (this.audioGame) this.audioGame.pause();
+      if (this.audioCorrect) this.audioCorrect.pause();
+      if (this.audioRetry) this.audioRetry.pause();
+      this.audioCorrect = new Audio();
+      this.audioCorrect.src = '../../../assets/sound/i2.m4a';
+      this.audioCorrect.load();
+      this.audioCorrect.play();
+      this.win = true;
+
+      setTimeout(() => {
+        localStorage.setItem('puncte', '1');
+        this.router.navigateByUrl('my-drawing');
+      }, 6500);
+    }
   }
 
   playRetrySound() {
-    this.audioRetry = new Audio();
-    this.audioRetry.src = '../../../assets/sound/try.m4a';
-    this.audioRetry.load();
-    this.audioRetry.play();
+    if (!this.win && !this.secondTour) {
+      if (this.audioGame) this.audioGame.pause();
+      if (this.audioCorrect) this.audioCorrect.pause();
+      if (this.audioRetry) this.audioRetry.pause();
+      if (!this.audioCorrect) {
+        this.audioRetry = new Audio();
+        this.audioRetry.src = '../../../assets/sound/try.m4a';
+        this.audioRetry.load();
+        this.audioRetry.play();
+      }
+    }
   }
 }
