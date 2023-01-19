@@ -25,10 +25,14 @@ export class MenuComponent implements OnInit, OnDestroy {
   }
 
   playIntroSound() {
-    this.pointsSound = new Audio();
-    this.pointsSound.src = '../../../assets/sound/menu/BineAiVenit.mp4';
-    this.pointsSound.load();
-    this.pointsSound.play();
+    if (this.introSound) this.introSound.pause();
+    if (this.pointsSound) this.pointsSound.pause();
+    this.introSound = new Audio();
+    if (this.pointsSound) this.pointsSound.pause();
+
+    this.introSound.src = '../../../assets/sound/menu/BineAiVenit.mp4';
+    this.introSound.load();
+    this.introSound.play();
   }
 
   goToFood() {
@@ -46,6 +50,8 @@ export class MenuComponent implements OnInit, OnDestroy {
 
   goToAnimals() {
     if (this.introSound) this.introSound.pause();
+    if (this.pointsSound) this.pointsSound.pause();
+
     if (
       localStorage.getItem('puncte') == '0' ||
       localStorage.getItem('puncte') == '1' ||
@@ -56,12 +62,15 @@ export class MenuComponent implements OnInit, OnDestroy {
 
   goToPuzzle() {
     if (this.introSound) this.introSound.pause();
+    if (this.pointsSound) this.pointsSound.pause();
+
     if (localStorage.getItem('puncte') == '9')
       this.router.navigateByUrl('puzzle');
   }
 
   playSoundWithPoints() {
     if (this.introSound) this.introSound.pause();
+    if (this.pointsSound) this.pointsSound.pause();
     this.pointsSound = new Audio();
     this.pointsSound.src =
       '../../../assets/sound/menu/' +

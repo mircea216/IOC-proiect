@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 
 @Component({
@@ -38,7 +37,9 @@ export class DrawingNumbersComponent {
   winbutton: any;
   reloadbutton: any;
   errorbutton: any;
+
   errorsound: any;
+  audioStart: any;
   winsound: any;
 
   constructor(private router: Router) {}
@@ -59,27 +60,29 @@ export class DrawingNumbersComponent {
     this.c = document.querySelector('canvas');
     this.cx = this.c.getContext('2d');
 
-    console.log('da');
     this.xoffset = this.container.offsetLeft;
     this.yoffset = this.container.offsetTop;
     this.fontsize = this.container.offsetHeight / 1.6;
     this.linewidth = this.container.offsetHeight / 19;
     this.paintletter();
     this.setstate('intro');
-    let audio = new Audio();
-    audio.src = '../../../assets/sound/coloreaza.ogg';
-    audio.load();
-    audio.play();
+    this.audioStart = new Audio();
+    this.audioStart.src = '../../../assets/sound/coloreaza.ogg';
+    this.audioStart.load();
+    this.audioStart.play();
   }
 
   showerror = () => {
     this.setstate('error');
+    if (this.audioStart) this.audioStart.pause();
+    if (this.winsound) this.winsound.pause();
+
     if (this.sound && !this.playedErr) {
       this.playedErr = true;
-      let audio = new Audio();
-      audio.src = '../../../assets/sound/teapa.ogg';
-      audio.load();
-      audio.play();
+      this.errorsound = new Audio();
+      this.errorsound.src = '../../../assets/sound/teapa.ogg';
+      this.errorsound.load();
+      this.errorsound.play();
     }
   };
 
@@ -186,13 +189,11 @@ export class DrawingNumbersComponent {
     );
     this.pixels = this.cx.getImageData(0, 0, this.c.width, this.c.height);
     let imgpix = this.cx.getImageData(620, 180, 350, 400);
-    console.log(imgpix);
     this.letterpixels = this.getpixelamount(
       this.textcolour[0],
       this.textcolour[1],
       this.textcolour[2]
     );
-    console.log(this.letterpixels);
     this.cx.shadowOffsetX = 0;
     this.cx.shadowOffsetY = 0;
     this.cx.shadowBlur = 0;
@@ -258,12 +259,15 @@ export class DrawingNumbersComponent {
         0.5
       ) {
         this.setstate('win');
+        if (this.audioStart) this.audioStart.pause();
+        if (this.errorsound) this.errorsound.pause();
+
         if (this.sound && !this.played) {
           this.played = true;
-          let audio = new Audio();
-          audio.src = '../../../assets/sound/bravo.ogg';
-          audio.load();
-          audio.play();
+          this.winsound = new Audio();
+          this.winsound.src = '../../../assets/sound/bravo.ogg';
+          this.winsound.load();
+          this.winsound.play();
 
           setTimeout(() => {
             if (localStorage.getItem('puncte') == '1') {

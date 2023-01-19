@@ -15,7 +15,9 @@
 
   <div id="win" class="cover check">
     <p></p>
-    <button id="win button" class="actionbutton">➜</button>
+    <button id="win button" class="actionbutton" *ngIf="state !== 'win'">
+      ➜
+    </button>
   </div>
 
   <div id="error" class="cover ics">
