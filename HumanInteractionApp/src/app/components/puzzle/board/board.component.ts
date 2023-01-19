@@ -5,6 +5,7 @@ import {
   Output,
   EventEmitter,
   SimpleChanges,
+  OnDestroy,
 } from '@angular/core';
 
 type Piece = { index: number; id: number; misplaced: boolean; path: string };
@@ -14,7 +15,7 @@ type Piece = { index: number; id: number; misplaced: boolean; path: string };
   templateUrl: './board.component.html',
   styleUrls: ['./board.component.css'],
 })
-export class BoardComponent implements OnInit {
+export class BoardComponent implements OnInit, OnDestroy {
   readonly rows: number = 4;
   readonly columns: number = 4;
   readonly numberOfPieces: number = this.rows * this.columns;
@@ -28,7 +29,6 @@ export class BoardComponent implements OnInit {
   private secondSound: any;
   private thirdSound: any;
   private fourthSound: any;
-  private startSound: any;
 
   @Input() folder: string = '';
   @Input() image: number = 0;
@@ -36,6 +36,13 @@ export class BoardComponent implements OnInit {
 
   ngOnInit(): void {
     this.reset();
+  }
+
+  ngOnDestroy(): void {
+    if (this.firstSound) this.firstSound.pause();
+    if (this.secondSound) this.secondSound.pause();
+    if (this.thirdSound) this.thirdSound.pause();
+    if (this.fourthSound) this.fourthSound.pause();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -56,6 +63,10 @@ export class BoardComponent implements OnInit {
     while (this.numberOfPiecesInPlace > 0) {
       this.shufflePieces();
     }
+    if (this.firstSound) this.firstSound.pause();
+    if (this.secondSound) this.secondSound.pause();
+    if (this.thirdSound) this.thirdSound.pause();
+    if (this.fourthSound) this.fourthSound.pause();
   }
 
   private get numberOfPiecesInPlace(): number {

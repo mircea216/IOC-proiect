@@ -16,8 +16,12 @@ export class MealPreparationComponent implements OnInit, OnDestroy {
   grapeCorrect = false;
   pearCorrect = false;
   buttonDisable: boolean | undefined;
-  
-  constructor(private router: Router, private route: ActivatedRoute) { }
+
+  win = false;
+
+  secondTour = false;
+
+  constructor(private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.buttonDisable = true;
@@ -30,59 +34,103 @@ export class MealPreparationComponent implements OnInit, OnDestroy {
   }
 
   playGameSound(): void {
-    this.route.params.subscribe((params) => {
-      if (params['playSound'] == '1') {
-        this.saladInitGame = new Audio();
-        this.saladInitGame.src = '../../../assets/sound/sd-init.m4a';
-        this.saladInitGame.load();
-        this.saladInitGame.play();
-      }
-    });
+    if (!this.win && !this.secondTour) {
+      if (this.saladInitGame) this.saladInitGame.pause();
+      if (this.appleSound) this.appleSound.pause();
+      if (this.audioRetry) this.audioRetry.pause();
+      if (this.pearSound) this.pearSound.pause();
+      if (this.grapeSound) this.grapeSound.pause();
+      if (this.audioRetry) this.audioRetry.pause();
+      this.route.params.subscribe((params) => {
+        if (params['playSound'] == '1') {
+          this.saladInitGame = new Audio();
+          this.saladInitGame.src = '../../../assets/sound/sd-init.m4a';
+          this.saladInitGame.load();
+          this.saladInitGame.play();
+        } else {
+          this.secondTour = false;
+        }
+      });
+    }
   }
 
   playRetrySound(): void {
-    this.audioRetry = new Audio();
-    this.audioRetry.src = '../../../assets/sound/sd-3.m4a';
-    this.audioRetry.load();
-    this.audioRetry.play();
+    if (!this.win && !this.secondTour) {
+      if (this.saladInitGame) this.saladInitGame.pause();
+      if (this.appleSound) this.appleSound.pause();
+      if (this.audioRetry) this.audioRetry.pause();
+      if (this.pearSound) this.pearSound.pause();
+      if (this.grapeSound) this.grapeSound.pause();
+      if (this.audioRetry) this.audioRetry.pause();
+      this.audioRetry = new Audio();
+      this.audioRetry.src = '../../../assets/sound/sd-3.m4a';
+      this.audioRetry.load();
+      this.audioRetry.play();
+    }
   }
 
   playAppleSound(): void {
-    if (!this.appleCorrect && !this.pearCorrect && !this.grapeCorrect) {
-      this.appleCorrect = true;
-      this.appleSound = new Audio();
-      this.appleSound.src = '../../../assets/sound/sd-1.m4a';
-      this.appleSound.load();
-      this.appleSound.play();
-    } else {
-      this.playRetrySound();
+    if (!this.win && !this.secondTour) {
+      if (this.saladInitGame) this.saladInitGame.pause();
+      if (this.appleSound) this.appleSound.pause();
+      if (this.audioRetry) this.audioRetry.pause();
+      if (this.pearSound) this.pearSound.pause();
+      if (this.grapeSound) this.grapeSound.pause();
+      if (this.audioRetry) this.audioRetry.pause();
+      if (!this.appleCorrect && !this.pearCorrect && !this.grapeCorrect) {
+        this.appleCorrect = true;
+        this.appleSound = new Audio();
+        this.appleSound.src = '../../../assets/sound/sd-1.m4a';
+        this.appleSound.load();
+        this.appleSound.play();
+      } else {
+        this.playRetrySound();
+      }
     }
   }
 
   playGrapeSound(): void {
-    if (this.appleCorrect && !this.pearCorrect && !this.grapeCorrect) {
-      this.grapeCorrect = true;
-      this.grapeSound = new Audio();
-      this.grapeSound.src = '../../../assets/sound/sd-2.m4a';
-      this.grapeSound.load();
-      this.grapeSound.play();
-    } else this.playRetrySound();
+    if (!this.win && !this.secondTour) {
+      if (this.saladInitGame) this.saladInitGame.pause();
+      if (this.appleSound) this.appleSound.pause();
+      if (this.audioRetry) this.audioRetry.pause();
+      if (this.pearSound) this.pearSound.pause();
+      if (this.grapeSound) this.grapeSound.pause();
+      if (this.audioRetry) this.audioRetry.pause();
+      if (this.appleCorrect && !this.pearCorrect && !this.grapeCorrect) {
+        this.grapeCorrect = true;
+        this.grapeSound = new Audio();
+        this.grapeSound.src = '../../../assets/sound/sd-2.m4a';
+        this.grapeSound.load();
+        this.grapeSound.play();
+      } else this.playRetrySound();
+    }
   }
 
   playPearSound(): void {
-    if (this.appleCorrect && this.grapeCorrect && !this.pearCorrect) {
-      this.pearCorrect = true;
-      this.pearSound = new Audio();
-      this.pearSound.src = '../../../assets/sound/i5.m4a';
-      this.pearSound.load();
-      this.pearSound.play();
+    if (!this.win && !this.secondTour) {
+      if (this.saladInitGame) this.saladInitGame.pause();
+      if (this.appleSound) this.appleSound.pause();
+      if (this.audioRetry) this.audioRetry.pause();
+      if (this.pearSound) this.pearSound.pause();
+      if (this.grapeSound) this.grapeSound.pause();
+      if (this.audioRetry) this.audioRetry.pause();
 
-      setTimeout(() => {
-        localStorage.setItem('puncte', '6');
-        this.router.navigateByUrl('my-drawing');
-      }, 8000);
-    } else {
-      this.playRetrySound();
+      if (this.appleCorrect && this.grapeCorrect && !this.pearCorrect) {
+        this.pearCorrect = true;
+        this.pearSound = new Audio();
+        this.pearSound.src = '../../../assets/sound/i5.m4a';
+        this.pearSound.load();
+        this.pearSound.play();
+        this.win = true;
+
+        setTimeout(() => {
+          localStorage.setItem('puncte', '6');
+          this.router.navigateByUrl('my-drawing');
+        }, 8000);
+      } else {
+        this.playRetrySound();
+      }
     }
   }
 
