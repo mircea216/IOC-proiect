@@ -18,12 +18,14 @@ export class MouseCatComponent implements OnInit, OnDestroy {
   private audioCorrect: any;
   private audioRetry: any;
   buttonDisable: boolean | undefined = true;
+  displayer: boolean | undefined;
 
   win = false;
 
   secondTour = false;
 
   ngOnInit(): void {
+    this.displayer = false;
     this.buttonDisable = true;
     this.route.params.subscribe((value) => {
       if (value['playSound'] === '1') {
@@ -117,5 +119,18 @@ export class MouseCatComponent implements OnInit, OnDestroy {
         this.audioRetry.play();
       }
     }
+  }
+
+  backToMenu(): void {
+    this.router.navigateByUrl("");
+    localStorage.setItem("puncte", "0");
+  }
+
+  setDisplayer(): void {
+    this.displayer = true;
+  }
+
+  negateDisplayer(): void {
+    this.displayer = false;
   }
 }
