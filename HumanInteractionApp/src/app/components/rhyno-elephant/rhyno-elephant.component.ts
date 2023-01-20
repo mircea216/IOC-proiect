@@ -12,11 +12,18 @@ export class RhynoElephantComponent implements OnInit {
   private audioCorrect: any;
   private audioRetry: any;
   buttonDisable: boolean | undefined;
-
+  buttonReplySoundDisable: boolean | undefined = true;
   win = false;
 
   secondTour = false;
-
+  replySound():void{
+    this.buttonReplySoundDisable=false;
+    this.playGameSound();
+    setTimeout(() => {
+      this.buttonReplySoundDisable=true;
+    }, 4500);
+  }
+  
   constructor(
     private renderer2: Renderer2,
     private elementRef: ElementRef,

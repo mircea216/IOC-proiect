@@ -2,6 +2,7 @@
   <img (click)="playRetrySound()" class="mouse-holder" src="../../../assets/images/mouse.png" />
   <img (click)="surprise()" class="cat-holder" src="../../../assets/images/cat.png" />
   <button *ngIf="buttonDisable" class="next-btn" type="image" routerLink="/round-2/1"></button>
+  <button (click)="replySound()" *ngIf="buttonReplySoundDisable" class="reply-btn" type="image"></button>
   <button (click)="setDisplayer()" class="back-home"></button>
   <dialog [open]="displayer" class="modal"> <img (click)="negateDisplayer()" class="no"> <img (click)="backToMenu()"
       class="yes"></dialog>

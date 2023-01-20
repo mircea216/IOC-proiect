@@ -31,6 +31,7 @@ export class GameComponent implements OnInit, OnDestroy {
   fails: number = 0;
   goal: string = '';
   end: string = '';
+  buttonReplySoundDisable: boolean | undefined = true;
 
   private startSound: any;
 
@@ -50,7 +51,18 @@ export class GameComponent implements OnInit, OnDestroy {
         this.end = 'Ai câștigat!';
       });
   }
-
+  replySound():void{
+    this.buttonReplySoundDisable=false;
+    if (this.startSound) this.startSound.pause();
+    this.startSound = new Audio();
+    this.startSound.src =
+      '../../../assets/images/povesti/' + this.image + '/0.mp4';
+    this.startSound.load();
+    this.startSound.play();
+    setTimeout(() => {
+      this.buttonReplySoundDisable=true;
+    }, 4500);
+  }
   ngOnDestroy(): void {
     this.subscription?.unsubscribe();
     if (this.startSound) {

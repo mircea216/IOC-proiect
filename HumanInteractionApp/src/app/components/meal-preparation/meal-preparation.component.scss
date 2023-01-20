@@ -15,7 +15,19 @@
     overflow: hidden;
 }
 
-
+.reply-btn{
+    background-image: url("../../../assets/images/refreshsound.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 100%;
+    top: 680px;
+    left: 120px;
+    height: 45px;
+    width: 45px;
+    position: absolute;
+    border: 2px;
+    cursor: pointer;
+}
 .good-apple-jar {
     margin-left: 890px;
     margin-right: 100px;

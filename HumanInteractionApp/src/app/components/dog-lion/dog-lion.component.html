@@ -2,5 +2,6 @@
   <img (click)="playRetrySound()" class="dog-holder" src="../../../assets/images/dog.png" />
   <img (click)="surprise()" class="lion-holder" src="../../../assets/images/lion.png" />
   <img (click)="playRetrySound()" class="cock-holder" src="../../../assets/images/cock.png" />
+  <button (click)="replySound()" *ngIf="buttonReplySoundDisable" class="reply-btn" type="image"></button>
   <button *ngIf="buttonDisable" class="next-btn" type="image" routerLink="/round-3/1"></button>
 </div>

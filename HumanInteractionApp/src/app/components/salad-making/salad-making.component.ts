@@ -16,6 +16,7 @@ export class SaladMakingComponent implements OnInit {
   lunchCorrect = false;
   dinnerCorrect = false;
   buttonDisable: boolean | undefined;
+  buttonReplySoundDisable: boolean | undefined = true;
 
   win = false;
   secondTour = false;
@@ -31,7 +32,35 @@ export class SaladMakingComponent implements OnInit {
     });
     this.playGameSound();
   }
-
+  replySound():void{
+    this.buttonReplySoundDisable=false;
+    if (!this.lunchCorrect && !this.breakfastCorrect && !this.dinnerCorrect){
+      this.playGameSound();
+      setTimeout(() => {
+        this.buttonReplySoundDisable=true;
+      }, 6500);
+    }
+    else if (this.breakfastCorrect && !this.lunchCorrect && !this.dinnerCorrect){
+      this.breakfastCorrect = true;
+      this.breakfastSound = new Audio();
+      this.breakfastSound.src = '../../../assets/sound/m2.m4a';
+      this.breakfastSound.load();
+      this.breakfastSound.play();
+      setTimeout(() => {
+        this.buttonReplySoundDisable=true;
+      }, 4500);
+    }
+    else if (this.breakfastCorrect && this.lunchCorrect && !this.dinnerCorrect){
+      this.lunchCorrect = true;
+        this.lunchSound = new Audio();
+        this.lunchSound.src = '../../../assets/sound/m3.m4a';
+        this.lunchSound.load();
+        this.lunchSound.play();
+      setTimeout(() => {
+        this.buttonReplySoundDisable=true;
+      }, 4500);
+    }
+  }
   playGameSound(): void {
     if (!this.win && !this.secondTour) {
       if (this.mealSound) this.mealSound.pause();

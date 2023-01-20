@@ -16,6 +16,7 @@ export class MealPreparationComponent implements OnInit, OnDestroy {
   grapeCorrect = false;
   pearCorrect = false;
   buttonDisable: boolean | undefined;
+  buttonReplySoundDisable: boolean | undefined = true;
 
   win = false;
 
@@ -31,6 +32,36 @@ export class MealPreparationComponent implements OnInit, OnDestroy {
       }
     });
     this.playGameSound();
+  }
+
+  replySound():void{
+    this.buttonReplySoundDisable=false;
+    if (!this.appleCorrect && !this.pearCorrect && !this.grapeCorrect){
+      this.playGameSound();
+      setTimeout(() => {
+        this.buttonReplySoundDisable=true;
+      }, 6500);
+    }
+    else if (this.appleCorrect && !this.pearCorrect && !this.grapeCorrect){
+      this.appleCorrect = true;
+      this.appleSound = new Audio();
+      this.appleSound.src = '../../../assets/sound/sd-1.m4a';
+      this.appleSound.load();
+      this.appleSound.play();
+      setTimeout(() => {
+        this.buttonReplySoundDisable=true;
+      }, 4500);
+    }
+    else if (this.appleCorrect && this.grapeCorrect && !this.pearCorrect){
+      this.grapeCorrect = true;
+      this.grapeSound = new Audio();
+      this.grapeSound.src = '../../../assets/sound/sd-2.m4a';
+      this.grapeSound.load();
+      this.grapeSound.play();
+      setTimeout(() => {
+        this.buttonReplySoundDisable=true;
+      }, 4500);
+    }
   }
 
   playGameSound(): void {

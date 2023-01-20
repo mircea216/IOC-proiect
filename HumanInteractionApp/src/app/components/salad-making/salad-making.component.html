@@ -38,5 +38,6 @@
       />
     </span>
     <button *ngIf="buttonDisable" class="next-btn" routerLink=""></button>
+    <button (click)="replySound()" *ngIf="buttonReplySoundDisable" class="reply-btn" type="image"></button>
   </span>
 </div>

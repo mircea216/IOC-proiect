@@ -38,4 +38,5 @@
     *ngIf="over"
   />
   <button class="back-to-menu" (click)="backToMenu()"></button>
+  <button (click)="replySound()" *ngIf="buttonReplySoundDisable" class="reply-btn" type="image"></button>
 </div>

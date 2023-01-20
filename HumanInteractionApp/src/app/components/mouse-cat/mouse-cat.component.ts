@@ -17,6 +17,7 @@ export class MouseCatComponent implements OnInit, OnDestroy {
   private audioGame: any;
   private audioCorrect: any;
   private audioRetry: any;
+  buttonReplySoundDisable: boolean | undefined = true;
   buttonDisable: boolean | undefined = true;
   displayer: boolean | undefined;
 
@@ -33,6 +34,14 @@ export class MouseCatComponent implements OnInit, OnDestroy {
       }
     });
     this.playGameSound();
+  }
+
+  replySound():void{
+    this.buttonReplySoundDisable=false;
+    this.playGameSound();
+    setTimeout(() => {
+      this.buttonReplySoundDisable=true;
+    }, 4500);
   }
 
   playGameSound(): void {

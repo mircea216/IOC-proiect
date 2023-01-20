@@ -37,5 +37,6 @@
       />
     </span>
     <button *ngIf="buttonDisable" class="next-btn" routerLink="/healthy-food-2/1"></button>
+    <button (click)="replySound()" *ngIf="buttonReplySoundDisable" class="reply-btn" type="image"></button>
   </span>
 </div>

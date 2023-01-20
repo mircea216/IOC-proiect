@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 export class DrawingNumbersComponent {
   cifra = localStorage.getItem('puncte');
 
+
+  buttonReplySoundDisable: boolean | undefined = true;
   name = 'Angular';
   container: any;
   charscontainer: any;
@@ -85,6 +87,18 @@ export class DrawingNumbersComponent {
       this.errorsound.play();
     }
   };
+
+  replySound():void{
+    this.buttonReplySoundDisable=false;
+    this.audioStart = new Audio();
+    this.audioStart.src = '../../../assets/sound/coloreaza.ogg';
+    this.audioStart.load();
+    this.audioStart.play();
+    setTimeout(() => {
+      this.buttonReplySoundDisable=true;
+    }, 4500);
+  }
+
 
   setstate(newstate: any) {
     this.state = newstate;
