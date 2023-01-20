@@ -10,6 +10,8 @@ export class MenuComponent implements OnInit, OnDestroy {
   points: string | null = '0';
   pointsSound: any;
   introSound: any;
+  buttonReplySoundDisable: boolean | undefined = true;
+
   constructor(private router: Router) {}
 
   ngOnInit(): void {
@@ -18,8 +20,18 @@ export class MenuComponent implements OnInit, OnDestroy {
     } else {
       localStorage.setItem('puncte', '0');
     }
+    if(localStorage.getItem('puncte') != '0'){
+      this.buttonReplySoundDisable=false;
+    }
   }
-
+  replySound():void{
+    this.buttonReplySoundDisable=false;
+    this.playIntroSound();
+    setTimeout(() => {
+      this.buttonReplySoundDisable=true;
+    }, 8500);
+  
+  }
   ngOnDestroy(): void {
     localStorage.setItem('puncte', '0');
   }
