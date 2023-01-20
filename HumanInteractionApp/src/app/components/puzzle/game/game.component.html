@@ -37,6 +37,8 @@
     class="diploma"
     *ngIf="over"
   />
-  <button class="back-to-menu" (click)="backToMenu()"></button>
+  <button (click)="setDisplayer()" class="back-home"></button>
+  <dialog [open]="displayer" class="modal"> <img (click)="negateDisplayer()" class="no"> <img (click)="backToMenu()"
+      class="yes"></dialog>
   <button (click)="replySound()" *ngIf="buttonReplySoundDisable" class="reply-btn" type="image"></button>
 </div>

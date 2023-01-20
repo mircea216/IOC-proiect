@@ -14,22 +14,23 @@ export class RhynoElephantComponent implements OnInit {
   buttonDisable: boolean | undefined;
   buttonReplySoundDisable: boolean | undefined = true;
   win = false;
-
+  displayer: boolean | undefined;
   secondTour = false;
-  replySound():void{
-    this.buttonReplySoundDisable=false;
+  
+  replySound(): void {
+    this.buttonReplySoundDisable = false;
     this.playGameSound();
     setTimeout(() => {
-      this.buttonReplySoundDisable=true;
+      this.buttonReplySoundDisable = true;
     }, 4500);
   }
-  
+
   constructor(
     private renderer2: Renderer2,
     private elementRef: ElementRef,
     private router: Router,
     private route: ActivatedRoute
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.buttonDisable = true;
@@ -116,5 +117,18 @@ export class RhynoElephantComponent implements OnInit {
       this.audioRetry.pause();
       this.audioRetry = null;
     }
+  }
+
+  backToMenu(): void {
+    this.router.navigateByUrl("");
+    localStorage.setItem("puncte", "0");
+  }
+
+  setDisplayer(): void {
+    this.displayer = true;
+  }
+
+  negateDisplayer(): void {
+    this.displayer = false;
   }
 }

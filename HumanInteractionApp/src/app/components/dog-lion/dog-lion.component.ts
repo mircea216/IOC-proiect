@@ -18,6 +18,7 @@ export class DogLionComponent implements OnInit, OnDestroy {
   private audioRetry: any;
   buttonDisable: boolean | undefined;
   buttonReplySoundDisable: boolean | undefined = true;
+  displayer: boolean | undefined;
 
   win = false;
 
@@ -32,20 +33,21 @@ export class DogLionComponent implements OnInit, OnDestroy {
     });
     this.playGameSound();
   }
-  replySound():void{
-    this.buttonReplySoundDisable=false;
+  
+  replySound(): void {
+    this.buttonReplySoundDisable = false;
     this.playGameSound();
     setTimeout(() => {
-      this.buttonReplySoundDisable=true;
+      this.buttonReplySoundDisable = true;
     }, 4500);
   }
-  
+
   constructor(
     private renderer2: Renderer2,
     private elementRef: ElementRef,
     private router: Router,
     private route: ActivatedRoute
-  ) {}
+  ) { }
 
   surprise(): void {
     const canvas = this.renderer2.createElement('canvas');
@@ -120,5 +122,18 @@ export class DogLionComponent implements OnInit, OnDestroy {
       this.audioRetry.pause();
       this.audioRetry = null;
     }
+  }
+
+  backToMenu(): void {
+    this.router.navigateByUrl("");
+    localStorage.setItem("puncte", "0");
+  }
+
+  setDisplayer(): void {
+    this.displayer = true;
+  }
+
+  negateDisplayer(): void {
+    this.displayer = false;
   }
 }

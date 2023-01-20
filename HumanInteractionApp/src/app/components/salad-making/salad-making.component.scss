@@ -100,3 +100,49 @@
 .grid-placer {
   display: inline-block;
 }
+
+.modal {
+  width: 300px;
+  height: 150px;
+  text-align: center;
+  background: white;
+  margin-top: -220px;
+  margin-left: 35px;
+  opacity: 0.90;
+}
+
+.yes {
+  background-image: url("../../../assets/images/correct.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 38px;
+  height: 38px;
+  border-style: none;
+  margin-top: 100px;
+
+}
+
+.no {
+  background-image: url("../../../assets/images/wrong.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 38px;
+  margin-top: 100px;
+  height: 38px;
+  border-style: none;
+  margin-right: 70px;
+}
+
+.back-home {
+  background-image: url("../../../assets/images/bck-menu.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 100%;
+  top: 680px;
+  left: 40px;
+  height: 45px;
+  width: 45px;
+  position: absolute;
+  border: 2px;
+  cursor: pointer
+}

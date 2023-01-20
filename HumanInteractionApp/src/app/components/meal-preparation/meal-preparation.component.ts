@@ -17,12 +17,12 @@ export class MealPreparationComponent implements OnInit, OnDestroy {
   pearCorrect = false;
   buttonDisable: boolean | undefined;
   buttonReplySoundDisable: boolean | undefined = true;
-
+  displayer: boolean | undefined;
   win = false;
 
   secondTour = false;
 
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.buttonDisable = true;
@@ -34,32 +34,32 @@ export class MealPreparationComponent implements OnInit, OnDestroy {
     this.playGameSound();
   }
 
-  replySound():void{
-    this.buttonReplySoundDisable=false;
-    if (!this.appleCorrect && !this.pearCorrect && !this.grapeCorrect){
+  replySound(): void {
+    this.buttonReplySoundDisable = false;
+    if (!this.appleCorrect && !this.pearCorrect && !this.grapeCorrect) {
       this.playGameSound();
       setTimeout(() => {
-        this.buttonReplySoundDisable=true;
+        this.buttonReplySoundDisable = true;
       }, 6500);
     }
-    else if (this.appleCorrect && !this.pearCorrect && !this.grapeCorrect){
+    else if (this.appleCorrect && !this.pearCorrect && !this.grapeCorrect) {
       this.appleCorrect = true;
       this.appleSound = new Audio();
       this.appleSound.src = '../../../assets/sound/sd-1.m4a';
       this.appleSound.load();
       this.appleSound.play();
       setTimeout(() => {
-        this.buttonReplySoundDisable=true;
+        this.buttonReplySoundDisable = true;
       }, 4500);
     }
-    else if (this.appleCorrect && this.grapeCorrect && !this.pearCorrect){
+    else if (this.appleCorrect && this.grapeCorrect && !this.pearCorrect) {
       this.grapeCorrect = true;
       this.grapeSound = new Audio();
       this.grapeSound.src = '../../../assets/sound/sd-2.m4a';
       this.grapeSound.load();
       this.grapeSound.play();
       setTimeout(() => {
-        this.buttonReplySoundDisable=true;
+        this.buttonReplySoundDisable = true;
       }, 4500);
     }
   }
@@ -163,6 +163,19 @@ export class MealPreparationComponent implements OnInit, OnDestroy {
         this.playRetrySound();
       }
     }
+  }
+
+  backToMenu(): void {
+    this.router.navigateByUrl("");
+    localStorage.setItem("puncte", "0");
+  }
+
+  setDisplayer(): void {
+    this.displayer = true;
+  }
+
+  negateDisplayer(): void {
+    this.displayer = false;
   }
 
   ngOnDestroy(): void {

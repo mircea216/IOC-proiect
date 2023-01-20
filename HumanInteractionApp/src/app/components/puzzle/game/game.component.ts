@@ -32,7 +32,7 @@ export class GameComponent implements OnInit, OnDestroy {
   goal: string = '';
   end: string = '';
   buttonReplySoundDisable: boolean | undefined = true;
-
+  displayer: boolean | undefined;
   private startSound: any;
 
   constructor(
@@ -155,4 +155,13 @@ export class GameComponent implements OnInit, OnDestroy {
     this.router.navigateByUrl("");
     localStorage.setItem("puncte", "0");
   }
+
+  setDisplayer(): void {
+    this.displayer = true;
+  }
+
+  negateDisplayer(): void {
+    this.displayer = false;
+  }
+
 }

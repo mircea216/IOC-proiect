@@ -40,4 +40,7 @@
     <button *ngIf="buttonDisable" class="next-btn" routerLink=""></button>
     <button (click)="replySound()" *ngIf="buttonReplySoundDisable" class="reply-btn" type="image"></button>
   </span>
+  <button (click)="setDisplayer()" class="back-home"></button>
+  <dialog [open]="displayer" class="modal"> <img (click)="negateDisplayer()" class="no"> <img (click)="backToMenu()"
+      class="yes"></dialog>
 </div>

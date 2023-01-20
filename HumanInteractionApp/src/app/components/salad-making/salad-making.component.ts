@@ -17,6 +17,7 @@ export class SaladMakingComponent implements OnInit {
   dinnerCorrect = false;
   buttonDisable: boolean | undefined;
   buttonReplySoundDisable: boolean | undefined = true;
+  displayer: boolean | undefined;
 
   win = false;
   secondTour = false;
@@ -181,5 +182,18 @@ export class SaladMakingComponent implements OnInit {
       this.audioRetry.pause();
       this.audioRetry = null;
     }
+  }
+
+  backToMenu(): void {
+    this.router.navigateByUrl("");
+    localStorage.setItem("puncte", "0");
+  }
+
+  setDisplayer(): void {
+    this.displayer = true;
+  }
+
+  negateDisplayer(): void {
+    this.displayer = false;
   }
 }
