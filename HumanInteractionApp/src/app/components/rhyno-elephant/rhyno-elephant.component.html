@@ -4,7 +4,7 @@
   <img class="butterfly-holder" (click)="surprise()" src="../../../assets/images/butterfly.png" />
   <button (click)="replySound()" *ngIf="buttonReplySoundDisable" class="reply-btn" type="image"></button>
   <button *ngIf="buttonDisable" class="next-btn" type="image" routerLink=""></button>
-  <button (click)="setDisplayer()" class="back-home"></button>
+  <button *ngIf="buttonBackDisable" (click)="setDisplayer()" class="back-home"></button>
   <dialog [open]="displayer" class="modal"> <img (click)="negateDisplayer()" class="no"> <img (click)="backToMenu()"
       class="yes"></dialog>
 </div>

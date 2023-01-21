@@ -1,45 +1,19 @@
 <div class="container">
   <span class="grid-placer">
     <span>
-      <img
-        class="good-apple-jar"
-        src="../../../assets/images/jar-g-a.png"
-        (click)="playAppleSound()"
-      />
-      <img
-        class="bad-apple-jar"
-        src="../../../assets/images/jar-b-a.png"
-        (click)="playRetrySound()"
-      />
+      <img class="good-apple-jar" src="../../../assets/images/jar-g-a.png" (click)="playAppleSound()" />
+      <img class="bad-apple-jar" src="../../../assets/images/jar-b-a.png" (click)="playRetrySound()" />
     </span>
-    <span
-      ><img
-        class="good-grape-jar"
-        src="../../../assets/images/jar-g-g.png"
-        (click)="playRetrySound()"
-      />
-      <img
-        class="bad-grape-jar"
-        src="../../../assets/images/jar-b-g.png"
-        (click)="playGrapeSound()"
-      />
+    <span><img class="good-grape-jar" src="../../../assets/images/jar-g-g.png" (click)="playRetrySound()" />
+      <img class="bad-grape-jar" src="../../../assets/images/jar-b-g.png" (click)="playGrapeSound()" />
     </span>
-    <span
-      ><img
-        class="good-pear-jar"
-        src="../../../assets/images/jar-b-p.png"
-        (click)="playRetrySound()"
-      />
-      <img
-        class="bad-pear-jar"
-        src="../../../assets/images/jar-g-p.png"
-        (click)="playPearSound()"
-      />
+    <span><img class="good-pear-jar" src="../../../assets/images/jar-b-p.png" (click)="playRetrySound()" />
+      <img class="bad-pear-jar" src="../../../assets/images/jar-g-p.png" (click)="playPearSound()" />
     </span>
     <button *ngIf="buttonDisable" class="next-btn" routerLink="/healthy-food-2/1"></button>
     <button (click)="replySound()" *ngIf="buttonReplySoundDisable" class="reply-btn" type="image"></button>
   </span>
-  <button (click)="setDisplayer()" class="back-home"></button>
+  <button (click)="setDisplayer()" *ngIf="buttonBackDisable" class="back-home"></button>
   <dialog [open]="displayer" class="modal"> <img (click)="negateDisplayer()" class="no"> <img (click)="backToMenu()"
       class="yes"></dialog>
 </div>

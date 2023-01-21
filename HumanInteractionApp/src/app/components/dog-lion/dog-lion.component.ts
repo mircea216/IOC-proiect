@@ -16,8 +16,10 @@ export class DogLionComponent implements OnInit, OnDestroy {
   private audioGame: any;
   private audioCorrect: any;
   private audioRetry: any;
+  private backSound: any;
   buttonDisable: boolean | undefined;
   buttonReplySoundDisable: boolean | undefined = true;
+  buttonBackDisable: boolean | undefined = true;
   displayer: boolean | undefined;
 
   win = false;
@@ -33,7 +35,7 @@ export class DogLionComponent implements OnInit, OnDestroy {
     });
     this.playGameSound();
   }
-  
+
   replySound(): void {
     this.buttonReplySoundDisable = false;
     this.playGameSound();
@@ -67,6 +69,7 @@ export class DogLionComponent implements OnInit, OnDestroy {
       if (this.audioGame) this.audioGame.pause();
       if (this.audioCorrect) this.audioCorrect.pause();
       if (this.audioRetry) this.audioRetry.pause();
+      if (this.backSound) this.backSound.pause();
       this.route.params.subscribe((params) => {
         if (params['playSound'] == '1') {
           this.audioGame = new Audio();
@@ -89,6 +92,7 @@ export class DogLionComponent implements OnInit, OnDestroy {
       this.audioCorrect.src = '../../../assets/sound/i3.m4a';
       this.audioCorrect.load();
       this.audioCorrect.play();
+      if (this.backSound) this.backSound.pause();
       this.win = true;
       setTimeout(() => {
         localStorage.setItem('puncte', '2');
@@ -102,6 +106,7 @@ export class DogLionComponent implements OnInit, OnDestroy {
       if (this.audioGame) this.audioGame.pause();
       if (this.audioCorrect) this.audioCorrect.pause();
       if (this.audioRetry) this.audioRetry.pause();
+      if (this.backSound) this.backSound.pause();
       this.audioRetry = new Audio();
       this.audioRetry.src = '../../../assets/sound/try.m4a';
       this.audioRetry.load();
@@ -122,15 +127,29 @@ export class DogLionComponent implements OnInit, OnDestroy {
       this.audioRetry.pause();
       this.audioRetry = null;
     }
+    if (this.backSound) {
+      this.backSound.pause();
+      this.backSound = null;
+    }
   }
 
   backToMenu(): void {
     this.router.navigateByUrl("");
     localStorage.setItem("puncte", "0");
+    if (this.backSound) this.backSound.pause();
   }
 
   setDisplayer(): void {
     this.displayer = true;
+      this.backSound = new Audio();
+      this.backSound.src = '../../../assets/sound/back.ogg';
+      this.backSound.load();
+      this.backSound.play();
+      if (this.audioGame) this.audioGame.pause();
+      if (this.audioCorrect) this.audioCorrect.pause();
+      if (this.audioRetry) this.audioRetry.pause();
+      this.buttonBackDisable = false;
+      setTimeout(() => { this.buttonBackDisable = true }, 8000);
   }
 
   negateDisplayer(): void {

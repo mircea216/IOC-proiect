@@ -12,11 +12,13 @@ export class MealPreparationComponent implements OnInit, OnDestroy {
   private appleSound: any;
   private grapeSound: any;
   private pearSound: any;
+  private backSound: any;
   appleCorrect = false;
   grapeCorrect = false;
   pearCorrect = false;
   buttonDisable: boolean | undefined;
   buttonReplySoundDisable: boolean | undefined = true;
+  buttonBackDisable: boolean | undefined = true;
   displayer: boolean | undefined;
   win = false;
 
@@ -72,6 +74,8 @@ export class MealPreparationComponent implements OnInit, OnDestroy {
       if (this.pearSound) this.pearSound.pause();
       if (this.grapeSound) this.grapeSound.pause();
       if (this.audioRetry) this.audioRetry.pause();
+      if (this.backSound) this.backSound.pause();
+
       this.route.params.subscribe((params) => {
         if (params['playSound'] == '1') {
           this.saladInitGame = new Audio();
@@ -93,6 +97,8 @@ export class MealPreparationComponent implements OnInit, OnDestroy {
       if (this.pearSound) this.pearSound.pause();
       if (this.grapeSound) this.grapeSound.pause();
       if (this.audioRetry) this.audioRetry.pause();
+      if (this.backSound) this.backSound.pause();
+
       this.audioRetry = new Audio();
       this.audioRetry.src = '../../../assets/sound/sd-3.m4a';
       this.audioRetry.load();
@@ -108,6 +114,7 @@ export class MealPreparationComponent implements OnInit, OnDestroy {
       if (this.pearSound) this.pearSound.pause();
       if (this.grapeSound) this.grapeSound.pause();
       if (this.audioRetry) this.audioRetry.pause();
+      if (this.backSound) this.backSound.pause();
       if (!this.appleCorrect && !this.pearCorrect && !this.grapeCorrect) {
         this.appleCorrect = true;
         this.appleSound = new Audio();
@@ -128,6 +135,7 @@ export class MealPreparationComponent implements OnInit, OnDestroy {
       if (this.pearSound) this.pearSound.pause();
       if (this.grapeSound) this.grapeSound.pause();
       if (this.audioRetry) this.audioRetry.pause();
+      if (this.backSound) this.backSound.pause();
       if (this.appleCorrect && !this.pearCorrect && !this.grapeCorrect) {
         this.grapeCorrect = true;
         this.grapeSound = new Audio();
@@ -146,7 +154,7 @@ export class MealPreparationComponent implements OnInit, OnDestroy {
       if (this.pearSound) this.pearSound.pause();
       if (this.grapeSound) this.grapeSound.pause();
       if (this.audioRetry) this.audioRetry.pause();
-
+      if (this.backSound) this.backSound.pause();
       if (this.appleCorrect && this.grapeCorrect && !this.pearCorrect) {
         this.pearCorrect = true;
         this.pearSound = new Audio();
@@ -172,6 +180,17 @@ export class MealPreparationComponent implements OnInit, OnDestroy {
 
   setDisplayer(): void {
     this.displayer = true;
+    this.backSound = new Audio();
+    this.backSound.src = '../../../assets/sound/back.ogg';
+    this.backSound.load();
+    this.backSound.play();
+    if (this.pearSound) this.pearSound.pause();
+    if (this.appleSound) this.appleSound.pause();
+    if (this.grapeSound) this.grapeSound.pause();
+    if (this.saladInitGame) this.saladInitGame.pause();
+    if (this.audioRetry) this.audioRetry.pause();
+    this.buttonBackDisable = false;
+    setTimeout(() => { this.buttonBackDisable = true }, 8000);
   }
 
   negateDisplayer(): void {
@@ -198,6 +217,10 @@ export class MealPreparationComponent implements OnInit, OnDestroy {
     if (this.grapeSound) {
       this.grapeSound.pause();
       this.grapeSound = null;
+    }
+    if (this.backSound) {
+      this.backSound.pause();
+      this.backSound = null;
     }
   }
 }

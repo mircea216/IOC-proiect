@@ -17,8 +17,10 @@ export class MouseCatComponent implements OnInit, OnDestroy {
   private audioGame: any;
   private audioCorrect: any;
   private audioRetry: any;
+  private backSound: any;
   buttonReplySoundDisable: boolean | undefined = true;
   buttonDisable: boolean | undefined = true;
+  buttonBackDisable: boolean | undefined = true;
   displayer: boolean | undefined;
 
   win = false;
@@ -36,11 +38,11 @@ export class MouseCatComponent implements OnInit, OnDestroy {
     this.playGameSound();
   }
 
-  replySound():void{
-    this.buttonReplySoundDisable=false;
+  replySound(): void {
+    this.buttonReplySoundDisable = false;
     this.playGameSound();
     setTimeout(() => {
-      this.buttonReplySoundDisable=true;
+      this.buttonReplySoundDisable = true;
     }, 4500);
   }
 
@@ -49,6 +51,7 @@ export class MouseCatComponent implements OnInit, OnDestroy {
       if (this.audioCorrect) this.audioCorrect.pause();
       if (this.audioRetry) this.audioRetry.pause();
       if (this.audioGame) this.audioGame.pause();
+      if (this.backSound) this.backSound.pause();
 
       this.route.params.subscribe((params) => {
         if (params['playSound'] == '1') {
@@ -68,7 +71,7 @@ export class MouseCatComponent implements OnInit, OnDestroy {
     private elementRef: ElementRef,
     private router: Router,
     private route: ActivatedRoute
-  ) {}
+  ) { }
 
   surprise(): void {
     const canvas = this.renderer2.createElement('canvas');
@@ -96,6 +99,10 @@ export class MouseCatComponent implements OnInit, OnDestroy {
       this.audioRetry.pause();
       this.audioRetry = null;
     }
+    if (this.backSound) {
+      this.backSound.pause();
+      this.backSound = null;
+    }
   }
 
   playCorrectSound() {
@@ -103,6 +110,7 @@ export class MouseCatComponent implements OnInit, OnDestroy {
       if (this.audioGame) this.audioGame.pause();
       if (this.audioCorrect) this.audioCorrect.pause();
       if (this.audioRetry) this.audioRetry.pause();
+      if (this.backSound) this.backSound.pause();
       this.audioCorrect = new Audio();
       this.audioCorrect.src = '../../../assets/sound/i2.m4a';
       this.audioCorrect.load();
@@ -121,6 +129,7 @@ export class MouseCatComponent implements OnInit, OnDestroy {
       if (this.audioGame) this.audioGame.pause();
       if (this.audioCorrect) this.audioCorrect.pause();
       if (this.audioRetry) this.audioRetry.pause();
+      if (this.backSound) this.backSound.pause();
       if (!this.audioCorrect) {
         this.audioRetry = new Audio();
         this.audioRetry.src = '../../../assets/sound/try.m4a';
@@ -133,10 +142,20 @@ export class MouseCatComponent implements OnInit, OnDestroy {
   backToMenu(): void {
     this.router.navigateByUrl("");
     localStorage.setItem("puncte", "0");
+    if (this.backSound) this.backSound.pause();
   }
 
   setDisplayer(): void {
     this.displayer = true;
+    this.backSound = new Audio();
+    this.backSound.src = '../../../assets/sound/back.ogg';
+    this.backSound.load();
+    this.backSound.play();
+    if (this.audioGame) this.audioGame.pause();
+    if (this.audioCorrect) this.audioCorrect.pause();
+    if (this.audioRetry) this.audioRetry.pause();
+    this.buttonBackDisable = false;
+    setTimeout(() => { this.buttonBackDisable = true }, 8000);
   }
 
   negateDisplayer(): void {

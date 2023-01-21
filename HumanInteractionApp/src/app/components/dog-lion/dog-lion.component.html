@@ -4,7 +4,7 @@
   <img (click)="playRetrySound()" class="cock-holder" src="../../../assets/images/cock.png" />
   <button (click)="replySound()" *ngIf="buttonReplySoundDisable" class="reply-btn" type="image"></button>
   <button *ngIf="buttonDisable" class="next-btn" type="image" routerLink="/round-3/1"></button>
-  <button (click)="setDisplayer()" class="back-home"></button>
+  <button *ngIf="buttonBackDisable" (click)="setDisplayer()" class="back-home"></button>
   <dialog [open]="displayer" class="modal"> <img (click)="negateDisplayer()" class="no"> <img (click)="backToMenu()"
       class="yes"></dialog>
 </div>

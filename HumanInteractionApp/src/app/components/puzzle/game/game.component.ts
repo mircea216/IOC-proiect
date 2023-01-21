@@ -33,6 +33,8 @@ export class GameComponent implements OnInit, OnDestroy {
   end: string = '';
   buttonReplySoundDisable: boolean | undefined = true;
   displayer: boolean | undefined;
+  private backSound: any;
+  buttonBackDisable: boolean | undefined = true;
   private startSound: any;
 
   constructor(
@@ -51,16 +53,17 @@ export class GameComponent implements OnInit, OnDestroy {
         this.end = 'Ai câștigat!';
       });
   }
-  replySound():void{
-    this.buttonReplySoundDisable=false;
+  replySound(): void {
+    this.buttonReplySoundDisable = false;
     if (this.startSound) this.startSound.pause();
+    if (this.backSound) this.backSound.pause();
     this.startSound = new Audio();
     this.startSound.src =
       '../../../assets/images/povesti/' + this.image + '/0.mp4';
     this.startSound.load();
     this.startSound.play();
     setTimeout(() => {
-      this.buttonReplySoundDisable=true;
+      this.buttonReplySoundDisable = true;
     }, 4500);
   }
   ngOnDestroy(): void {
@@ -68,6 +71,10 @@ export class GameComponent implements OnInit, OnDestroy {
     if (this.startSound) {
       this.startSound.pause();
       this.startSound = null;
+    }
+    if (this.backSound) {
+      this.backSound.pause();
+      this.backSound = null;
     }
   }
 
@@ -101,6 +108,7 @@ export class GameComponent implements OnInit, OnDestroy {
     this.reset();
     this.image = Math.floor(Math.random() * this.imagesPerCategory);
     if (this.startSound) this.startSound.pause();
+    if (this.backSound) this.backSound.pause();
     this.startSound = new Audio();
     this.startSound.src =
       '../../../assets/images/povesti/' + this.image + '/0.mp4';
@@ -113,6 +121,7 @@ export class GameComponent implements OnInit, OnDestroy {
     this.reset();
 
     if (this.startSound) this.startSound.pause();
+    if (this.backSound) this.backSound.pause();
     this.startSound = new Audio();
     this.startSound.src =
       '../../../assets/images/povesti/' + this.image + '/0.mp4';
@@ -158,6 +167,13 @@ export class GameComponent implements OnInit, OnDestroy {
 
   setDisplayer(): void {
     this.displayer = true;
+    this.backSound = new Audio();
+    this.backSound.src = '../../../assets/sound/back.ogg';
+    this.backSound.load();
+    this.backSound.play();
+    if (this.startSound) this.startSound.pause();
+    this.buttonBackDisable = false;
+    setTimeout(() => { this.buttonBackDisable = true }, 8000);
   }
 
   negateDisplayer(): void {
